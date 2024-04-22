@@ -1,1 +1,1 @@
-# treasure-hunt
+# habitica
