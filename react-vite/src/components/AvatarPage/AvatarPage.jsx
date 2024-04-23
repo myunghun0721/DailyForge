@@ -1,26 +1,23 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
-import "./HomePage.css"
+import "../HomePage/HomePage.css"
 import { thunkFetchAvatars } from "../../redux/avatars";
 
-function HomePage() {
+function AvatarPage() {
   const dispatch = useDispatch();
 
   const avatar = useSelector(state => state.avatars.avatars)
-  console.log("🚀 ~ HomePage ~ avatar:", avatar)
   const sessionUser = useSelector((state) => state.session.user);
-
 
   useEffect(() => {
     dispatch(thunkFetchAvatars())
   }, [dispatch, sessionUser])
 
-  if (!sessionUser) return <Navigate to="/" />;
-
 
   return (
     <>
+      <h1>Avatar page</h1>
       <div className="">
         {sessionUser && avatar.id ? (
           <div key={avatar.id} className="div-main-avatar">
@@ -36,23 +33,41 @@ function HomePage() {
           <div key={avatar.id} className="div-main-avatar">
             <img src={"../../public/avatar/backgrounds/background_yellow.png"} className="avatar-image"></img>
             <div className="avatar-container">
-                <p>No avatar yet</p>
+              <p>No avatar yet</p>
             </div>
           </div>
         }
         <br></br>
         <div className="div-daily">
-          <h2>Dailies</h2>
           <div>
-            <label>
-              <input value={"Add a Daily"}></input>
-            </label>
+            <h2>Body</h2>
           </div>
           <hr></hr>
+
+          <div>
+            <h2>Skin</h2>
+          </div>
+          <hr></hr>
+
+          <div>
+            <h2>Hair</h2>
+          </div>
+          <hr></hr>
+
+          <div>
+            <h2>Extra</h2>
+          </div>
+          <hr></hr>
+
+          <div>
+            <h2>Backgrounds</h2>
+          </div>
+          <hr></hr>
+
         </div>
       </div>
     </>
   );
 }
 
-export default HomePage;
+export default AvatarPage;

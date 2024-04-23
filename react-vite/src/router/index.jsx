@@ -3,6 +3,7 @@ import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import HomePage from '../components/HomePage';
+import AvatarPage from '../components/AvatarPage';
 
 export const router = createBrowserRouter([
   {
@@ -16,10 +17,10 @@ export const router = createBrowserRouter([
         path: "/homepage",
         element: <HomePage/>,
       },
-      // {
-      //   path: "signup",
-      //   element: <SignupFormPage />,
-      // },
+      {
+        path: "/avatar",
+        element: <AvatarPage />,
+      },
       {
         path: "/*",
         element: <h1>Page Not Found</h1>,
