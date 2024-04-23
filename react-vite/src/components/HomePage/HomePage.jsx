@@ -8,6 +8,7 @@ function HomePage() {
   const dispatch = useDispatch();
 
   const avatar = useSelector(state => state.avatars.avatars)
+  console.log("🚀 ~ HomePage ~ avatar:", avatar)
   const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ function HomePage() {
   return (
     <>
       <div className="">
-        {sessionUser && avatar && (
+        {sessionUser && avatar.id ? (
           <div key={avatar.id} className="div-main-avatar">
             <img src={avatar.backgrounds} className="avatar-image"></img>
             <div className="avatar-container">
@@ -28,7 +29,24 @@ function HomePage() {
               <img src={avatar.body} className="avatar-image"></img>
             </div>
           </div>
-        )}
+        ) :
+          <div key={avatar.id} className="div-main-avatar">
+            <img src={"../../public/avatar/backgrounds/background_yellow.png"} className="avatar-image"></img>
+            <div className="avatar-container">
+                <p>No avatar yet</p>
+            </div>
+          </div>
+        }
+        <br></br>
+        <div className="div-daily">
+          <h2>Dailies</h2>
+          <div>
+            <label>
+              <input value={"Add a Daily"}></input>
+            </label>
+          </div>
+          <hr></hr>
+        </div>
       </div>
     </>
   );
