@@ -27,10 +27,22 @@ function LoginFormPage() {
     if (serverResponse) {
       setErrors(serverResponse);
     } else {
-      navigate("/");
+      navigate("/homepage");
     }
   };
 
+  function loginDemo() {
+    // console.log('login as demo')
+    const email = "hun@aa.io";
+    const password = "password";
+    dispatch(
+      thunkLogin({
+        email,
+        password,
+      })
+    )
+    navigate("/homepage");
+  }
   return (
     <>
       <h1>Log In</h1>
@@ -59,6 +71,7 @@ function LoginFormPage() {
         {errors.password && <p>{errors.password}</p>}
         <button type="submit">Log In</button>
       </form>
+      <button onClick={loginDemo}>Log In as Hun</button>
     </>
   );
 }
