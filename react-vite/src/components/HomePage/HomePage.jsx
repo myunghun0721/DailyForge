@@ -8,7 +8,6 @@ function HomePage() {
   const dispatch = useDispatch();
 
   const avatar = useSelector(state => state.avatars.avatars)
-  console.log("🚀 ~ HomePage ~ avatar:", avatar)
   const sessionUser = useSelector((state) => state.session.user);
 
 
@@ -45,7 +44,7 @@ function HomePage() {
           <h2>Dailies</h2>
           <div>
             <label>
-              <input value={"Add a Daily"}></input>
+              Daily
             </label>
           </div>
           <hr></hr>

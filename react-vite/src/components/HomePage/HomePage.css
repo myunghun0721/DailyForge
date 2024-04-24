@@ -28,3 +28,14 @@
     padding: 10px;
     border: 1px solid black;
 }
+
+.user-info{
+    position: absolute;
+    top: 50px;
+    left: 180px;
+    color: white;
+    font-weight: bold;
+}
+.user-info h2{
+    margin-bottom: 5px;
+}

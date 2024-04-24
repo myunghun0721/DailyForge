@@ -24,8 +24,8 @@ function AvatarPage() {
             <div className="avatar-container">
               <img src={avatar.extra} className="avatar-image"></img>
               <img src={avatar.skin} className="avatar-image"></img>
-              <img src={avatar.hair} className="avatar-image"></img>
               <img src={avatar.body} className="avatar-image"></img>
+              <img src={avatar.hair} className="avatar-image"></img>
             </div>
           </div>
         ) :
@@ -36,6 +36,10 @@ function AvatarPage() {
             </div>
           </div>
         }
+        <div className="user-info">
+          <h2>@{sessionUser.username}</h2>
+          <p>Email: {sessionUser.email}</p>
+        </div>
       </div>
     </>
   );
