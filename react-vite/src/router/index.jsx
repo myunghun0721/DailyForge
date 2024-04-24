@@ -4,6 +4,7 @@ import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import HomePage from '../components/HomePage';
 import AvatarPage from '../components/AvatarPage';
+import AvatarFormPage from '../components/AvatarFormPage';
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/avatar",
-        element: <AvatarPage />,
+        element: <AvatarFormPage />,
       },
       {
         path: "/*",

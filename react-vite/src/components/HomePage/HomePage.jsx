@@ -22,7 +22,7 @@ function HomePage() {
   return (
     <>
       <div className="">
-        {sessionUser && avatar.id ? (
+        {/* {sessionUser && avatar.id ? (
           <div key={avatar.id} className="div-main-avatar">
             <img src={avatar.backgrounds} className="avatar-image"></img>
             <div className="avatar-container">
@@ -40,7 +40,7 @@ function HomePage() {
             </div>
           </div>
         }
-        <br></br>
+        <br></br> */}
         <div className="div-daily">
           <h2>Dailies</h2>
           <div>

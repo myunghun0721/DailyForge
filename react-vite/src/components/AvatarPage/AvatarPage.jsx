@@ -17,7 +17,6 @@ function AvatarPage() {
 
   return (
     <>
-      <h1>Avatar page</h1>
       <div className="">
         {sessionUser && avatar.id ? (
           <div key={avatar.id} className="div-main-avatar">
@@ -37,34 +36,6 @@ function AvatarPage() {
             </div>
           </div>
         }
-        <br></br>
-        <div className="div-daily">
-          <div>
-            <h2>Body</h2>
-          </div>
-          <hr></hr>
-
-          <div>
-            <h2>Skin</h2>
-          </div>
-          <hr></hr>
-
-          <div>
-            <h2>Hair</h2>
-          </div>
-          <hr></hr>
-
-          <div>
-            <h2>Extra</h2>
-          </div>
-          <hr></hr>
-
-          <div>
-            <h2>Backgrounds</h2>
-          </div>
-          <hr></hr>
-
-        </div>
       </div>
     </>
   );
