@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import "../HomePage/HomePage.css"
 import { thunkFetchAvatars } from "../../redux/avatars";
+import yellow from "../../../public/avatar/backgrounds/background_yellow.png"
 
 function AvatarPage() {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ function AvatarPage() {
           </div>
         ) :
           <div key={avatar.id} className="div-main-avatar">
-            <img src={"../../dist/avatar/backgrounds/background_yellow.png"} className="avatar-image"></img>
+            <img src={`${yellow}`} className="avatar-image"></img>
             <div className="avatar-container">
               <p>No avatar yet</p>
             </div>

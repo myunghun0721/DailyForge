@@ -21,7 +21,6 @@ def create_route():
             'extra' : form.data['extra'],
             'backgrounds' : form.data['backgrounds'],
         }
-        print("🚀 ~ params:", params)
         new_avatar = Avatar(**params)
         db.session.add(new_avatar)
         db.session.commit()

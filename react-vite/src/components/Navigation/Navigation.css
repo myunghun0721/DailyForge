@@ -9,7 +9,6 @@
 }
 .nav{
   display: flex;
-  padding: 15px;
   justify-content: space-between;
   background-color: #432874
 }
@@ -21,6 +20,8 @@
 }
 .nav-menu {
   color: white;
+  display: flex;
+  align-items: center;
 }
 .nav-menu a {
   max-height: 100%;
