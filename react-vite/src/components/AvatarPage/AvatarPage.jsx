@@ -30,7 +30,7 @@ function AvatarPage() {
           </div>
         ) :
           <div key={avatar.id} className="div-main-avatar">
-            <img src={"../../public/avatar/backgrounds/background_yellow.png"} className="avatar-image"></img>
+            <img src={"../../dist/avatar/backgrounds/background_yellow.png"} className="avatar-image"></img>
             <div className="avatar-container">
               <p>No avatar yet</p>
             </div>
