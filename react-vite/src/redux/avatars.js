@@ -85,15 +85,17 @@ const avatarReducer = (state = initialState, action) => {
                 avatars: action.payload
             };
             return newState
+            // newState.avatars = action.payload
 
-        case CREATE_AVATAR: {
+            case CREATE_AVATAR: {
             const newAvatarState = { ...state }
             newAvatarState[action.payload.id] = action.payload
             return newAvatarState
         }
         case DELETE_AVATAR: {
             const newState = { ...state };
-            delete newState[action.payload];
+            newState.avatars = []
+            // delete newState[action.payload];
             return newState;
 
         }
