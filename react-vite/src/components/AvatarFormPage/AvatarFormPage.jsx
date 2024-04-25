@@ -6,7 +6,10 @@ import { thunkCreateAvatars, thunkFetchAvatars, thunkUpdateAvatar } from "../../
 import DeleteAvatarModal from "../deleteAvatarModal/DeleteAvatarModal";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import bodies from "../../../public/avatar/bodies";
-
+import skins from "../../../public/avatar/skins";
+import hairs from "../../../public/avatar/hairs";
+import extras from "../../../public/avatar/extras";
+import backgrounds from "../../../public/avatar/backgrounds";
 
 function AvatarFormPage() {
   const dispatch = useDispatch();
@@ -257,7 +260,7 @@ function AvatarFormPage() {
                 ))}
               </div>
               {error.body ? <h5>{error.body}</h5> : <h5></h5>}
-{/*
+
               <h3>Select skin:</h3>
               <div className="body-grid-container">
                 {skins.map((skin, id) => (
@@ -324,7 +327,7 @@ function AvatarFormPage() {
                   </div>
                 ))}
               </div>
-              {error.background ? <h5>{error.background}</h5> : <h5></h5>} */}
+              {error.background ? <h5>{error.background}</h5> : <h5></h5>}
 
               <button type="submit" disabled={Object.values(error).length > 0}>Create Avatar</button>
             </form>
