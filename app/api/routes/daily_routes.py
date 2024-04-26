@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.models import db, Avatar, Daily
+from app.models import db, Daily
 from flask_login import current_user, login_required
 from datetime import datetime
 from ...forms import DailyForm
@@ -40,3 +40,19 @@ def post_route():
         return new_daily.to_dict()
 
     return {"message": "form validation failed"}, 401
+
+# delete daily
+@daily_routes.route('/<int:dailyId>/delete', methods=["DELETE"])
+@login_required
+def daily_delete(dailyId):
+    daily = Daily.query.get(dailyId)
+
+    if not daily:
+        return {"message": "daily not found"}, 404
+    if current_user.id != daily.user_id:
+        return {"message": "your not the owner of this daily", "current_user": current_user.id, "daily_owner": daily.user_id}
+
+    db.session.delete(daily)
+    db.session.commit()
+
+    return {"message": "delete successful"}

@@ -5,14 +5,16 @@ import "./DailyPage.css"
 import { fetchDailies, thunkFetchDailies } from "../../redux/dailies";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import AddDailyModal from "../AddDailyModal";
+import DeleteDailyModal from "../DeleteDailyModal";
 
 
 function DailyPage() {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
-  const dailiesObj = useSelector(state => state.dailies.dailies)
+  const dailiesObj = useSelector(state => state.dailies)
   const dailies = Object.values(dailiesObj)
+
 
 
   const navigate = useNavigate()
@@ -35,15 +37,15 @@ function DailyPage() {
     <>
       <div className="daily-wrapper">
         <div className="manage-daily">
-        <h1>Manage my Dailies</h1>
-        <button className="add-daily-button">
+          <h1>Manage my Dailies</h1>
+          <button className="add-daily-button">
 
-              <OpenModalMenuItem
-                itemText="Add Daily"
-                //     onItemClick={closeMenu}
-                modalComponent={<AddDailyModal/>}
-              />
-            </button>
+            <OpenModalMenuItem
+              itemText="Add Daily"
+              //     onItemClick={closeMenu}
+              modalComponent={<AddDailyModal />}
+            />
+          </button>
         </div>
         <div className="daily-container">
           {dailies.map(daily => (
@@ -53,10 +55,19 @@ function DailyPage() {
               <p>{formatDate(daily.start_date)}</p>
               <p><strong>Difficulty: </strong>{daily.difficulty}</p>
               <p>Do I do this again? {
-                console.log(daily)
-                }
-                </p>
+                // console.log(daily)
+              }
+              </p>
+
+              <button className="add-daily-button">
+                <OpenModalMenuItem
+                  itemText="Delete Daily"
+                  //     onItemClick={closeMenu}
+                  modalComponent={<DeleteDailyModal dailyId={daily.id} />}
+                />
+              </button>
             </div>
+
           ))}
         </div>
       </div>
