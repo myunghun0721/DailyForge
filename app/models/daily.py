@@ -14,7 +14,7 @@ class Daily(db.Model):
     note = db.Column(db.String(255), nullable=False)
     difficulty = db.Column(db.String(255), nullable=False)
     start_date = db.Column(db.DateTime, default=datetime.utcnow)
-    repeats = db.Column(db.String(255), nullable=False)
+    repeats = db.Column(db.Boolean, nullable=False)
 
     # relationships
     users = db.relationship("User", back_populates="dailies")

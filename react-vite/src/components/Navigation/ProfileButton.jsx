@@ -38,8 +38,8 @@ function ProfileButton() {
   const logout = (e) => {
     e.preventDefault();
     dispatch(thunkLogout());
-    closeMenu();
     navigate("/")
+    closeMenu();
   };
 
   return (

@@ -16,7 +16,7 @@ function AvatarFormPage() {
   const navigate = useNavigate()
   const avatar = useSelector(state => state.avatars.avatars)
   const sessionUser = useSelector((state) => state.session.user);
-
+  const navigation = useNavigate()
   const [body, setBody] = useState("")
   const [skin, setSkin] = useState("")
   const [hair, sethair] = useState("")
@@ -24,6 +24,10 @@ function AvatarFormPage() {
   const [background, setbackGround] = useState("")
   const [error, setError] = useState({})
 
+
+  if (!sessionUser){
+    navigate("/")
+  }
   useEffect(() => {
     dispatch(thunkFetchAvatars())
   }, [dispatch, sessionUser])

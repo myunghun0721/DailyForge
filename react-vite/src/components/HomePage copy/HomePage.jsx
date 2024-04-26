@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./HomePage.css"
-import { thunkFetchAvatars } from "../../redux/avatars";
+import { thunkFetchAvatars } from "../../redux/avatars.js";
 // import initialData from "./initial-data";
 import Column from './column.jsx'
 import { DragDropContext } from '@hello-pangea/dnd'
@@ -13,14 +13,13 @@ function HomePage() {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
-  const [state, setState] = useState(null)
-  // const dailiesObj = useSelector(state => state.dailies.dailies)
-  // const dailies = Object.values(dailiesObj)
+  const dailiesObj = useSelector(state => state.dailies.dailies)
+  const dailies = Object.values(dailiesObj)
   const navigate = useNavigate()
 
-  // user must logged in!!
 
-  if (!sessionUser) {
+  if (!sessionUser){
+    console.log("==========================================================")
     navigate("/")
   }
 
@@ -28,40 +27,42 @@ function HomePage() {
   display: flex;
   `;
 
+  if (!dailies) return
+
+  // Extract task ids for column-1
+  const tasks = {};
+  // Populate tasks object and taskIds array
+  const taskIds = [];
+
+  dailies.forEach(task => {
+    tasks[task.id] = task;
+    taskIds.push(task.id);
+  });
+
+  const initialData = {
+    tasks: tasks,
+    columns: {
+      'column-1': {
+        id: 'column-1',
+        title: 'My Dailies',
+        taskIds: taskIds
+      },
+    },
+    // Facilitate reordering of the columns
+    columnOrder: ['column-1'],
+  }
+
+  const [state, setState] = useState(initialData)
+
   useEffect(() => {
-    (async () => {
-      await dispatch(thunkFetchAvatars())
-      const dailies = await dispatch(thunkFetchDailies());
-      setState(initializeState(dailies));
-    })()
+    dispatch(thunkFetchAvatars())
+    dispatch(thunkFetchDailies())
+
   }, [dispatch, sessionUser])
 
-  const initializeState = (dailies) => {
-    // Extract task ids for column-1
-    const tasks = {};
-    // Populate tasks object and taskIds array
-    const taskIds = [];
+  // user must logged in!!
 
-    dailies.forEach(task => {
-      tasks[task.id] = task;
-      taskIds.push(task.id);
-    });
 
-    const initialData = {
-      tasks: tasks,
-      columns: {
-        'column-1': {
-          id: 'column-1',
-          title: 'My Dailies',
-          taskIds: taskIds
-        },
-      },
-      // Facilitate reordering of the columns
-      columnOrder: ['column-1'],
-    }
-
-    return initialData
-  }
 
   const onDragEnd = result => {
     const { destination, source, draggableId } = result;
@@ -138,16 +139,23 @@ function HomePage() {
 
   return (
     <>
+      {state ?
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Container>
 
-      {state ? <DragDropContext onDragEnd={onDragEnd}>
-        <Container>
-          {state.columnOrder.map(columnId => {
-            const column = state.columns[columnId];
-            const tasks = column.taskIds.map(taskId => state.tasks[taskId]);
-            return <Column key={column.id} column={column} tasks={tasks} />;
-          })}
-        </Container>
-      </DragDropContext> : <div>loading</div>}
+            {state.columnOrder.map(columnId => {
+              const column = state.columns[columnId];
+              // console.log("🚀 ~ HomePage ~ column:", column)
+              const tasks = column.taskIds.map(taskId => state.tasks[taskId]);
+              console.log("🚀 ~ HomePage ~ tasks:", tasks)
+
+
+
+              return <Column key={column.id} column={column} tasks={tasks} />;
+            })}
+          </Container>
+        </DragDropContext>
+        : <div>loading</div>}
     </>
   );
 }

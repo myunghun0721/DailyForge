@@ -17,7 +17,7 @@ export default function Layout() {
   return (
     <>
       <ModalProvider>
-        <Navigation />
+        {isLoaded && <Navigation />}
         {sessionUser && <AvatarPage/>}
         {isLoaded && <Outlet />}
         <Modal />

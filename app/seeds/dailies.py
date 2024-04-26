@@ -13,7 +13,7 @@ def seed_dailes():
             note="Must take out old TV",
             difficulty="medium",
             start_date=datetime(2023, 11,10),
-            repeats="no"
+            repeats=0
         ),
         Daily(
             user_id=1,
@@ -21,7 +21,7 @@ def seed_dailes():
             note="bring popcorn!!",
             difficulty="easy",
             start_date=datetime(2023, 12,10),
-            repeats="yes"
+            repeats=1
         ),
         Daily(
             user_id=1,
@@ -29,7 +29,7 @@ def seed_dailes():
             note="need to charge my ipad too",
             difficulty="easy",
             start_date=datetime(2023, 12,10),
-            repeats="yes"
+            repeats=1
         ),
         Daily(
             user_id=1,
@@ -37,7 +37,7 @@ def seed_dailes():
             note="let's make pizza -need to buy extra cheeze",
             difficulty="easy",
             start_date=datetime(2023, 1,10),
-            repeats="no"
+            repeats=0
         ),
         Daily(
             user_id=2,
@@ -45,7 +45,7 @@ def seed_dailes():
             note="need milk",
             difficulty="easy",
             start_date=datetime(2023, 1,10),
-            repeats="no"
+            repeats=0
         ),
         Daily(
             user_id=1,
@@ -53,7 +53,7 @@ def seed_dailes():
             note="need to add comments on my code",
             difficulty="hard",
             start_date=datetime(2023, 12,10),
-            repeats="yes"
+            repeats=1
         )
     ]
 
