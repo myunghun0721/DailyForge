@@ -3,29 +3,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./HomePage.css"
 import { thunkFetchAvatars } from "../../redux/avatars";
-import initialData from "./initial-data";
+// import initialData from "./initial-data";
 import Column from './column.jsx'
 import { DragDropContext } from '@hello-pangea/dnd'
 import styled from "styled-components";
+import { thunkFetchDailies } from "../../redux/dailies.js";
 
 function HomePage() {
   const dispatch = useDispatch();
 
-  const avatar = useSelector(state => state.avatars.avatars)
   const sessionUser = useSelector((state) => state.session.user);
-  const [state, setState] = useState(initialData)
+  const dailiesObj = useSelector(state => state.dailies.dailies)
+  const dailies = Object.values(dailiesObj)
 
   const Container = styled.div`
-    display: flex;
-
+  display: flex;
   `;
 
   useEffect(() => {
     dispatch(thunkFetchAvatars())
+    dispatch(thunkFetchDailies())
+
   }, [dispatch, sessionUser])
 
+  // user must logged in!!
   if (!sessionUser) return <Navigate to="/" />;
-
   const onDragEnd = result => {
     const { destination, source, draggableId } = result;
 
@@ -97,18 +99,71 @@ function HomePage() {
     // };
     // setState(newState);
   }
+
+  // const initialData = {
+  //   tasks: {
+  //     'task-1': { id: 'task-1', title: 'Take out the garbage' },
+  //     'task-2': { id: 'task-2', title: 'Watch my favorite show' },
+  //     'task-3': { id: 'task-3', title: 'Charge my phone' },
+  //     'task-4': { id: 'task-4', title: 'Cook dinner' },
+  //   },
+  //   columns: {
+  //     'column-1': {
+  //       id: 'column-1',
+  //       title: 'To do',
+  //       taskIds: ['task-1', 'task-2', 'task-3', 'task-4'],
+  //     },
+  //   },
+  //   // Facilitate reordering of the columns
+  //   columnOrder: ['column-1'],
+  // }
+
+  // Extract task ids for column-1
+  const tasks = {};
+  // Populate tasks object and taskIds array
+  const taskIds = [];
+
+  dailies.forEach(task => {
+    tasks[task.id] = task;
+    taskIds.push(task.id);
+  });
+
+  const initialData = {
+    tasks: tasks,
+    columns: {
+      'column-1': {
+        id: 'column-1',
+        title: 'My Dailies',
+        taskIds: taskIds
+      },
+    },
+    // Facilitate reordering of the columns
+    columnOrder: ['column-1'],
+  }
+  console.log("🚀 ~ HomePage ~ initialData:", initialData.tasks)
+
+  const [state, setState] = useState(initialData)
+
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Container>
+    <>
+      {dailies ?
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Container>
 
-        {state.columnOrder.map(columnId => {
-          const column = state.columns[columnId];
-          const tasks = column.taskIds.map(taskId => state.tasks[taskId]);
+            {state.columnOrder.map(columnId => {
+              const column = state.columns[columnId];
+              // console.log("🚀 ~ HomePage ~ column:", column)
+              const tasks = column.taskIds.map(taskId => state.tasks[taskId]);
+              // console.log("🚀 ~ HomePage ~ tasks:", tasks)
 
-          return <Column key={column.id} column={column} tasks={tasks} />;
-        })}
-      </Container>
-    </DragDropContext>
+
+
+              return <Column key={column.id} column={column} tasks={tasks} />;
+            })}
+          </Container>
+        </DragDropContext>
+        : <div>loading</div>}
+    </>
   );
 }
 

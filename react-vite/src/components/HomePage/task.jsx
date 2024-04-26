@@ -21,7 +21,9 @@ export default class Task extends React.Component {
             {...provided.draggableProps}
             {...provided.dragHandleProps}
           >
-            {this.props.task.content}
+            {this.props.task.title}
+            <br></br>
+            {this.props.task.note}
           </Container>
         )}
       </Draggable>

@@ -48,7 +48,7 @@ def seed_dailes():
             repeats="no"
         ),
         Daily(
-            user_id=2,
+            user_id=1,
             title="git commit",
             note="need to add comments on my code",
             difficulty="hard",
@@ -71,8 +71,8 @@ def seed_dailes():
 # it will reset the primary keys for you as well.
 def undo_dailes():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.dailes RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.dailies RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM dailes"))
+        db.session.execute(text("DELETE FROM dailies"))
 
     db.session.commit()
