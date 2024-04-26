@@ -70,32 +70,32 @@ function HomePage() {
       return
     }
 
-    // Moving from one list to another
-    const startTaskIds = Array.from(start.taskIds);
-    console.log("🚀 ~ onDragEnd ~ start:", start)
-    startTaskIds.splice(source.index, 1);
-    const newStart = {
-      ...start,
-      taskIds: startTaskIds,
-    };
+    // // Moving from one list to another
+    // const startTaskIds = Array.from(start.taskIds);
+    // console.log("🚀 ~ onDragEnd ~ start:", start)
+    // startTaskIds.splice(source.index, 1);
+    // const newStart = {
+    //   ...start,
+    //   taskIds: startTaskIds,
+    // };
 
-    const finishTaskIds = Array.from(finish.taskIds);
-    console.log("🚀 ~ onDragEnd ~ finish:", finish)
-    finishTaskIds.splice(destination.index, 0, draggableId);
-    const newFinish = {
-      ...finish,
-      taskIds: finishTaskIds,
-    };
+    // const finishTaskIds = Array.from(finish.taskIds);
+    // console.log("🚀 ~ onDragEnd ~ finish:", finish)
+    // finishTaskIds.splice(destination.index, 0, draggableId);
+    // const newFinish = {
+    //   ...finish,
+    //   taskIds: finishTaskIds,
+    // };
 
-    const newState = {
-      ...state,
-      columns: {
-        ...state.columns,
-        [newStart.id]: newStart,
-        [newFinish.id]: newFinish,
-      },
-    };
-    setState(newState);
+    // const newState = {
+    //   ...state,
+    //   columns: {
+    //     ...state.columns,
+    //     [newStart.id]: newStart,
+    //     [newFinish.id]: newFinish,
+    //   },
+    // };
+    // setState(newState);
   }
   return (
     <DragDropContext onDragEnd={onDragEnd}>
