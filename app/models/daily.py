@@ -13,7 +13,7 @@ class Daily(db.Model):
     title = db.Column(db.String(255), nullable=False)
     note = db.Column(db.String(255), nullable=False)
     difficulty = db.Column(db.String(255), nullable=False)
-    start_date = db.Column(db.DateTime, default=datetime.utcnow)
+    start_date = db.Column(db.DateTime, default=datetime)
     repeats = db.Column(db.Boolean, nullable=False)
 
     # relationships

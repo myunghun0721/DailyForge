@@ -11,7 +11,7 @@ import { thunkDeleteDaily } from '../../redux/dailies';
 
 
 
-function DeleteAvatarModal({ dailyId }) {
+function DeleteDailyModal({ dailyId }) {
     const { closeModal } = useModal();
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -28,14 +28,14 @@ function DeleteAvatarModal({ dailyId }) {
 
     return (
         <div id="deleteModal" className='div-modal-login'>
-            <h1>Confirm Delete Avatar</h1>
+            <h1>Confirm Delete Daily</h1>
 
             <div className="button-confirm">
                 <button id="yes" onClick={yesButton}>
-                    Yes (DELETE Avatar)
+                    Yes (DELETE Daily)
                 </button>
                 <button id="no" onClick={noButton}>
-                    No (Keep Avatar)
+                    No (Keep Daily)
                 </button>
             </div>
         </div>
@@ -43,4 +43,4 @@ function DeleteAvatarModal({ dailyId }) {
 }
 
 
-export default DeleteAvatarModal;
+export default DeleteDailyModal;

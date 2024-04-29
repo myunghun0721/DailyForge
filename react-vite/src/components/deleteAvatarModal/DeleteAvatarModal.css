@@ -16,10 +16,10 @@
     background-color: gray;
     padding: 5px;
 }
-#modal-content{
+/* #modal-content{
     width: 500px;
     height: 200px;
-}
+} */
 #deleteModal{
     display: flex;
     flex-direction: column;

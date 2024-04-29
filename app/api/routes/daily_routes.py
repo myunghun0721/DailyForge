@@ -7,6 +7,15 @@ from ...forms import DailyForm
 daily_routes = Blueprint('dailies', __name__)
 
 # read dailies
+@daily_routes.route('/<int:dailyId>')
+def get_one_daily(dailyId):
+    daily = Daily.query.get(dailyId)
+
+    if not daily:
+        return {"message": "daily not found"}, 404
+
+    return daily.to_dict()
+
 @daily_routes.route('/')
 def read_route():
 
@@ -56,3 +65,33 @@ def daily_delete(dailyId):
     db.session.commit()
 
     return {"message": "delete successful"}
+
+
+@daily_routes.route('/<int:dailyId>', methods=['PUT'])
+@login_required
+def edit_daily(dailyId):
+    daily = Daily.query.get(dailyId)
+
+    if not daily:
+        return {"message": "daily not found"}
+
+
+    form = DailyForm()
+
+    form['csrf_token'].data =request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+
+        daily.user_id=current_user.id
+        daily.title= form.data['title']
+        daily.note =form.data['note']
+        daily.difficulty =form.data['difficulty']
+        daily.start_date = form.data['start_date']
+        daily.repeats =form.data['repeats']
+
+        db.session.commit()
+        return daily.to_dict()
+
+    # return {form.errors}
+    print(form.errors)
+    return jsonify("not updated"), 404

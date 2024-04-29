@@ -6,6 +6,7 @@ import { fetchDailies, thunkFetchDailies } from "../../redux/dailies";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import AddDailyModal from "../AddDailyModal";
 import DeleteDailyModal from "../DeleteDailyModal";
+import UpdateDailyModal from "../UpdateDailyModal";
 
 
 function DailyPage() {
@@ -54,11 +55,17 @@ function DailyPage() {
               <p>{daily.note}</p>
               <p>{formatDate(daily.start_date)}</p>
               <p><strong>Difficulty: </strong>{daily.difficulty}</p>
-              <p>Do I do this again? {
+              {/* <p>Do I do this again? {
                 // console.log(daily)
               }
-              </p>
-
+              </p> */}
+              <button className="add-daily-button">
+                <OpenModalMenuItem
+                  itemText="Update Daily"
+                  //     onItemClick={closeMenu}
+                  modalComponent={<UpdateDailyModal dailyId={daily.id} />}
+                />
+              </button>
               <button className="add-daily-button">
                 <OpenModalMenuItem
                   itemText="Delete Daily"

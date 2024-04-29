@@ -16,7 +16,7 @@
     background-color: gray;
     padding: 5px;
 }
-#modal-content{
+#deleteModal{
     width: 500px;
     height: 200px;
 }
