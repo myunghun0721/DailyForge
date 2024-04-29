@@ -41,8 +41,10 @@ function AddDailyModal() {
 
     useEffect(() => {
         const errObj = {}
-        if (!title.length) errObj.title = "Title required"
-        if (!note.length) errObj.note = "Note required"
+        if (title.length < 4) errObj.title = "Title must longer than 4 characters"
+        if (title.length > 20) errObj.title = "Title must less than 20 characters"
+        if (note.length < 10) errObj.note = "Note must longer than 10 characters"
+        if (note.length > 100) errObj.note = "Note must less than 100 characters"
         if (!difficulty) errObj.difficulty = "Difficulty required"
         if (!startDate) errObj.startDate = "Start Date required"
 

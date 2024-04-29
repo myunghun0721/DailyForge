@@ -12,12 +12,10 @@ import UpdateDailyModal from "../UpdateDailyModal";
 function DailyPage() {
   const dispatch = useDispatch();
 
-  const sessionUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user)
   const dailiesObj = useSelector(state => state.dailies)
   const dailies = Object.values(dailiesObj)
-
-
-
+  console.log("🚀 ~ DailyPage ~ dailies:", dailies)
   const navigate = useNavigate()
 
 
@@ -26,17 +24,28 @@ function DailyPage() {
   }
 
   useEffect(() => {
-    dispatch(thunkFetchDailies())
-  }, [dispatch])
+    (async () => {
+      if (sessionUser) {
+        await dispatch(thunkFetchDailies())
+      }
+    })()
+  }, [dispatch, sessionUser])
 
   function formatDate(dateString) {
-    const options = { month: 'long', day: 'numeric', year: 'numeric' };
-    return new Date(dateString).toLocaleDateString("en-US", options);
+    console.log("🚀 ~ formatDate ~ dateString:", dateString)
+    const newDate = new Date(dateString.toLocaleString())
+    console.log("🚀 ~ formatDate ~ newDate:", newDate)
+    const year = newDate.getFullYear();
+    const month = ('0' + (newDate.getMonth() + 1)).slice(-2);
+    const day = ('0' + (parseInt(newDate.getDate()) + 1)).slice(-2);
+    const dateStr = `${year}-${month}-${day}`;
+    return dateStr
   }
+
 
   return (
     <>
-      <div className="daily-wrapper">
+      {dailies && <div className="daily-wrapper">
         <div className="manage-daily">
           <h1>Manage my Dailies</h1>
           <button className="add-daily-button">
@@ -53,7 +62,7 @@ function DailyPage() {
             <div key={daily.id} className="daily-item">
               <h2>{daily.title} </h2>
               <p>{daily.note}</p>
-              <p>{formatDate(daily.start_date)}</p>
+              <p><strong>Start Date: </strong>{formatDate(daily.start_date)}</p>
               <p><strong>Difficulty: </strong>{daily.difficulty}</p>
               {/* <p>Do I do this again? {
                 // console.log(daily)
@@ -77,7 +86,7 @@ function DailyPage() {
 
           ))}
         </div>
-      </div>
+      </div>}
     </>
   );
 }

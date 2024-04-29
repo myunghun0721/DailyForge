@@ -24,7 +24,7 @@ function UpdateDailyModal( {dailyId} ) {
     const newDate = new Date(daily.start_date)
     const year = newDate.getFullYear();
     const month = ('0' + (newDate.getMonth() + 1)).slice(-2);
-    const day = ('0' + newDate.getDate()).slice(-2);
+    const day = ('0' + parseInt(newDate.getDate()+ 1)).slice(-2);
     const dateStr = `${year}-${month}-${day}`;
 
     // console.log("🚀 ~ UpdateDailyModal ~ dateStr:", dateStr)
@@ -75,10 +75,13 @@ function UpdateDailyModal( {dailyId} ) {
 
     useEffect(() => {
         const errObj = {}
-        if (!title.length) errObj.title = "Title required"
-        if (!note.length) errObj.note = "Note required"
+        if (title.length < 4) errObj.title = "Title must longer than 4 characters"
+        if (title.length > 20) errObj.title = "Title must less than 20 characters"
+        if (note.length < 10) errObj.note = "Note must longer than 10 characters"
+        if (note.length > 100) errObj.note = "Note must less than 100 characters"
         if (!difficulty) errObj.difficulty = "Difficulty required"
         if (!startDate) errObj.startDate = "Start Date required"
+
 
 
         console.log("🚀 ~ UpdateDailyModal ~ startDate:", startDate)

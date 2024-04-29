@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import "./HomePage.css"
 import { thunkFetchAvatars } from "../../redux/avatars";
 // import initialData from "./initial-data";
@@ -30,9 +30,11 @@ function HomePage() {
 
   useEffect(() => {
     (async () => {
-      await dispatch(thunkFetchAvatars())
-      const dailies = await dispatch(thunkFetchDailies());
-      setState(initializeState(dailies));
+      if(sessionUser){
+        await dispatch(thunkFetchAvatars())
+        const dailies = await dispatch(thunkFetchDailies());
+        setState(initializeState(dailies));
+      }
     })()
   }, [dispatch, sessionUser])
 
@@ -147,7 +149,7 @@ function HomePage() {
             return <Column key={column.id} column={column} tasks={tasks} />;
           })}
         </Container>
-      </DragDropContext> : <div>loading</div>}
+      </DragDropContext> : <NavLink to="/daily">No Dailies found. Create them here</NavLink>}
     </>
   );
 }

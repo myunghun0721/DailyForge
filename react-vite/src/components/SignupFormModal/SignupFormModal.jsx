@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkSignup } from "../../redux/session";
@@ -39,10 +39,29 @@ function SignupFormModal() {
     }
   };
 
+  useEffect(() => {
+    const errObj = {}
+    if (!email.length) errObj.email = "email required"
+    if (!username.length) errObj.username = "username required"
+    if (username.length < 4) errObj.username = "username must longer than 4 characters"
+    if (username.length > 20) errObj.username = "username must less than 20 characters"
+    if (password.length < 8) errObj.password = "password must longer than 8 characters"
+    if (password.length > 20) errObj.password = "password must less than 20 characters"
+    if (!confirmPassword.length) errObj.confirmPassword = "confirmPassword required"
+
+    const regex = /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,15}$/;
+    const result = regex.test(email);
+    if (!result) {
+      errObj.email = "Please provide a valid email."
+    }
+    console.log(username.length)
+    setErrors(errObj)
+  }, [email, username, password, confirmPassword])
+
   return (
     <div className="form-sign-up">
       <h1>Sign Up</h1>
-      {errors.server ? <p>{errors.server}</p> : <p></p>}
+      {errors.server ? <p>{errors.server}</p> : <p> </p>}
       <form onSubmit={handleSubmit}>
         <label>
           Email
@@ -53,7 +72,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.email ? <p>{errors.email}</p>: <p></p>}
+        {errors.email ? <p>{errors.email}</p>: <p> </p>}
         <label>
           Username
           <input
@@ -63,7 +82,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.username ? <p>{errors.username}</p>: <p></p>}
+        {errors.username ? <p>{errors.username}</p>: <p> </p>}
         <label>
           Password
           <input
@@ -73,7 +92,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.password ? <p>{errors.password}</p> :<p></p>}
+        {errors.password ? <p>{errors.password}</p> :<p> </p>}
         <label>
           Confirm Password
           <input
@@ -83,7 +102,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.confirmPassword ? <p>{errors.confirmPassword}</p> : <p></p>}
+        {errors.confirmPassword ? <p>{errors.confirmPassword}</p> : <p> </p>}
         <button type="submit">Sign Up</button>
       </form>
     </div>

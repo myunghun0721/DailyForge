@@ -16,10 +16,12 @@ def get_one_daily(dailyId):
 
     return daily.to_dict()
 
+
 @daily_routes.route('/')
 def read_route():
 
     dailies = Daily.query.filter(Daily.user_id == current_user.id).all()
+
 
     if not dailies:
         return {"message": "no dailies"}

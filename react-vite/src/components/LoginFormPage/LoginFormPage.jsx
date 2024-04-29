@@ -46,13 +46,19 @@ function LoginFormPage() {
     navigate("/homepage");
   }
   return (
-    <>
-      <h1>Log In</h1>
+    <div className="main-page">
+      <div className="main-page-left">
+        <h1>Welcome to QuestForge!</h1>
+        <img src="https://habitica.com/static/img/home-main@3x.ffc32b12.png" alt="main-page-img"/>
+        <h1>Motivate yourself to achieve your goals.</h1>
+        <p>It's time to have fun when you get things done! Join over 4 million Habiticans and improve your life one task at a time.</p>
+      </div>
+      <div className="main-page-right">
       {errors.length > 0 &&
         errors.map((message) => <p key={message}>{message}</p>)}
       <form onSubmit={handleSubmit}>
         <label>
-          Email
+          Email:
           <input
             type="text"
             value={email}
@@ -60,9 +66,10 @@ function LoginFormPage() {
             required
           />
         </label>
-        {errors.email && <p>{errors.email}</p>}
+        {errors.email ? <p>{errors.email}</p> : <p> </p>}
+        <br></br>
         <label>
-          Password
+          Password:
           <input
             type="password"
             value={password}
@@ -70,19 +77,21 @@ function LoginFormPage() {
             required
           />
         </label>
-        {errors.password && <p>{errors.password}</p>}
+        {errors.password ? <p>{errors.password}</p> : <p> </p>}
+        <br></br>
         <button type="submit">Log In</button>
       </form>
       <button className="sign-up-button">
         <OpenModalMenuItem
-          itemText="sign up"
+          itemText="Sign up"
           //     onItemClick={closeMenu}
           modalComponent={<SignupFormModal/>}
         />
       </button>
 
       <button onClick={loginDemo}>Log In as Hun</button>
-    </>
+      </div>
+    </div>
   );
 }
 

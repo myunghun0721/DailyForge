@@ -5,11 +5,18 @@
     gap: 10px;
 }
 
+.daily-item button{
+    margin: 5px;
+}
+.daily-item button li{
+    padding: 5px;
+}
 .daily-item{
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     text-align: center;
+    list-style: none;
 }
 .daily-wrapper{
     margin: 10px;
@@ -42,6 +49,6 @@
 }
 
 .manage-daily button:hover{
-    background-color:  #413a4d; ;
+    background-color:  #413a4d ;
     color: white;
 }
