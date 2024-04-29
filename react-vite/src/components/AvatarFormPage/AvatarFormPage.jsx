@@ -27,6 +27,7 @@ function AvatarFormPage() {
 
   if (!sessionUser){
     navigate("/")
+    return
   }
   useEffect(() => {
     dispatch(thunkFetchAvatars())
@@ -78,6 +79,7 @@ function AvatarFormPage() {
     setError(errObj)
   }, [body, skin, hair, extra, background])
 
+  console.log("🚀 ~ AvatarFormPage ~ avatar:", avatar)
   return (
     <>
       <div className="">

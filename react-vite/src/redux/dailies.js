@@ -80,13 +80,14 @@ export const thunkFetchDailyById = (dailyId) => async dispatch => {
 const dailyReducer = (state = {}, action) => {
     switch (action.type) {
         case FETCH_DAILIES:
-            if (action.payload.message) return {}
-            const newState = {};
-            action.payload.forEach(daily => {
-                newState[daily.id] = daily;
-            });
-
-            return newState;
+            if (!action.payload.message) {
+                const newState = { ...state };
+                action.payload.forEach(daily => {
+                    newState[daily.id] = daily;
+                });
+                return newState;
+            }
+            return state
 
 
         case ADD_DAILY: {
@@ -109,7 +110,7 @@ const dailyReducer = (state = {}, action) => {
             return editDailyState
         }
         default:
-            return state;
+            return {};
     }
 
 };

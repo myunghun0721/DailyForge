@@ -15,7 +15,6 @@ function DailyPage() {
   const sessionUser = useSelector((state) => state.session.user)
   const dailiesObj = useSelector(state => state.dailies)
   const dailies = Object.values(dailiesObj)
-  console.log("🚀 ~ DailyPage ~ dailies:", dailies)
   const navigate = useNavigate()
 
 
@@ -32,9 +31,9 @@ function DailyPage() {
   }, [dispatch, sessionUser])
 
   function formatDate(dateString) {
-    console.log("🚀 ~ formatDate ~ dateString:", dateString)
+
     const newDate = new Date(dateString.toLocaleString())
-    console.log("🚀 ~ formatDate ~ newDate:", newDate)
+
     const year = newDate.getFullYear();
     const month = ('0' + (newDate.getMonth() + 1)).slice(-2);
     const day = ('0' + (parseInt(newDate.getDate()) + 1)).slice(-2);
@@ -45,7 +44,7 @@ function DailyPage() {
 
   return (
     <>
-      {dailies && <div className="daily-wrapper">
+      {dailies && dailies.length ? <div className="daily-wrapper">
         <div className="manage-daily">
           <h1>Manage my Dailies</h1>
           <button className="add-daily-button">
@@ -86,7 +85,19 @@ function DailyPage() {
 
           ))}
         </div>
-      </div>}
+      </div> :
+        <div className="manage-daily">
+          <h1>Create my Dailies</h1>
+          <button className="add-daily-button">
+
+            <OpenModalMenuItem
+              itemText="Add Daily"
+              //     onItemClick={closeMenu}
+              modalComponent={<AddDailyModal />}
+            />
+          </button>
+        </div>
+      }
     </>
   );
 }

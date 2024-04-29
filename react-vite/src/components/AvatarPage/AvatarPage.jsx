@@ -11,6 +11,12 @@ function AvatarPage() {
   const avatar = useSelector(state => state.avatars.avatars)
   const sessionUser = useSelector((state) => state.session.user);
 
+
+  if (!sessionUser) {
+    navigate("/")
+    return
+  }
+
   useEffect(() => {
     dispatch(thunkFetchAvatars())
   }, [dispatch, sessionUser])
