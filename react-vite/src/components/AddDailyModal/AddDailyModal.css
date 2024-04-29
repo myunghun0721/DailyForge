@@ -3,6 +3,9 @@
     width: 500px;
     justify-content: center;
     border-radius: 25px;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
 }
 .form-create-daily{
     display: flex;

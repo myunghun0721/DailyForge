@@ -1,0 +1,49 @@
+#modal-content{
+    display: flex;
+    width: 500px;
+    justify-content: center;
+    border-radius: 25px;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.form-sign-up{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.form-sign-up label{
+    font-weight: bold;
+    margin: 15px;
+}
+.form-sign-up input {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+    font-size: 18px;
+}
+.form-sign-up button{
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    margin: 15px;
+}
+.form-sign-up button:hover{
+    color: black;
+    cursor: pointer;
+    border: 2px solid rgba(119, 79, 184, 0.2);
+}
+
+.create-modal{
+    width: 100%;
+    height: 100%;
+}
+
+.form-sign-up form p {
+    color: red;
+}
