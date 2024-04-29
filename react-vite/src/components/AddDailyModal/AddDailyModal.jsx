@@ -9,7 +9,6 @@ import { thunkAddDailies } from '../../redux/dailies';
 // import { deleteSong } from '../../redux/user';
 
 
-
 function AddDailyModal() {
     const dispatch = useDispatch();
     const [title, setTitle] = useState("")
@@ -18,6 +17,7 @@ function AddDailyModal() {
     const [startDate, setStartDate] = useState()
     const [repeat, setRepeat] = useState(false)
     const [error, setError] = useState({})
+    const {closeModal} = useModal()
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -36,6 +36,7 @@ function AddDailyModal() {
         // for (const value of formData.values()) {
         //     console.log(value);
         //   }
+        closeModal()
     }
 
     useEffect(() => {

@@ -18,9 +18,18 @@ function UpdateDailyModal( {dailyId} ) {
     const [startDate, setStartDate] = useState()
     const [repeat, setRepeat] = useState(false)
     const [error, setError] = useState({})
-
+    const {closeModal} = useModal()
 
     const daily = useSelector(state => state.dailies[dailyId]);
+    const newDate = new Date(daily.start_date)
+    const year = newDate.getFullYear();
+    const month = ('0' + (newDate.getMonth() + 1)).slice(-2);
+    const day = ('0' + newDate.getDate()).slice(-2);
+    const dateStr = `${year}-${month}-${day}`;
+
+    // console.log("🚀 ~ UpdateDailyModal ~ dateStr:", dateStr)
+    // console.log("🚀 ~ UpdateDailyModal ~ newDate:", newDate.toISOString().replace("T", " ").substring(0, 19))
+
 
 
     useEffect(() => {
@@ -36,7 +45,7 @@ function UpdateDailyModal( {dailyId} ) {
             setTitle(daily.title)
             setNote(daily.note)
             setDifficulty(daily.difficulty)
-            setStartDate(daily.start_date)
+            setStartDate(dateStr)
             setRepeat(false)
 
 
@@ -61,6 +70,7 @@ function UpdateDailyModal( {dailyId} ) {
         // for (const value of formData.values()) {
         //     console.log(value);
         //   }
+        closeModal()
     }
 
     useEffect(() => {
@@ -71,6 +81,7 @@ function UpdateDailyModal( {dailyId} ) {
         if (!startDate) errObj.startDate = "Start Date required"
 
 
+        console.log("🚀 ~ UpdateDailyModal ~ startDate:", startDate)
         setError(errObj)
     }, [title, note, difficulty, startDate])
     return (

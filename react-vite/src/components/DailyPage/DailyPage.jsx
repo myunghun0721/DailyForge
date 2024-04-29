@@ -50,7 +50,7 @@ function DailyPage() {
         </div>
         <div className="daily-container">
           {dailies.map(daily => (
-            <div className="daily-item">
+            <div key={daily.id} className="daily-item">
               <h2>{daily.title} </h2>
               <p>{daily.note}</p>
               <p>{formatDate(daily.start_date)}</p>
