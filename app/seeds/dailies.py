@@ -11,7 +11,7 @@ def seed_dailes():
             user_id=1,
             title="Take out the garbage",
             note="Must take out old TV",
-            difficulty="medium",
+            difficulty="normal",
             start_date=datetime(2023, 11,10),
             repeats=0
         ),

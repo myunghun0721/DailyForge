@@ -17,11 +17,12 @@ function AvatarFormPage() {
   const avatar = useSelector(state => state.avatars.avatars)
   const sessionUser = useSelector((state) => state.session.user);
   const navigation = useNavigate()
-  const [body, setBody] = useState("")
-  const [skin, setSkin] = useState("")
-  const [hair, sethair] = useState("")
-  const [extra, setExtra] = useState("")
-  const [background, setbackGround] = useState("")
+
+  const [body, setBody] = useState(avatar.body ? avatar.body : bodies[0])
+  const [skin, setSkin] = useState(avatar.skin ? avatar.skin : skins[0])
+  const [hair, sethair] = useState(avatar.hairs ? avatar.hairs : hairs[0])
+  const [extra, setExtra] = useState(avatar.extra ? avatar.extra : extras[0])
+  const [background, setbackGround] = useState(avatar.backgrounds ? avatar.backgrounds : backgrounds[0])
   const [error, setError] = useState({})
   const [bodystyle, setBodyStyle] = useState("body-grid-item-current")
   const [skinstyle, setSkinStyle] = useState("body-grid-item-current")
@@ -70,12 +71,12 @@ function AvatarFormPage() {
 
 
     setError({})
-    // await dispatch(thunkUpdateAvatar(formData, avatar.id))
-    // navigate("/homepage")
+    await dispatch(thunkUpdateAvatar(formData, avatar.id))
+    navigate("/homepage")
 
-    for (const value of formData.values()) {
-      console.log(value);
-    }
+    // for (const value of formData.values()) {
+    //   console.log(value);
+    // }
   }
 
   useEffect(() => {
@@ -108,10 +109,6 @@ function AvatarFormPage() {
                 <div className="body-grid-container">
                   {bodies.map((body, id) => {
                     if (avatar.body == body) {
-                      {
-                        console.log(body)
-                        setBody(body)
-                      }
                       return <div className={bodystyle} key={id}>
                         <input
                           type="radio" name="body"
@@ -276,8 +273,8 @@ function AvatarFormPage() {
                   })}
                 </div>
                 {error.background ? <h5>{error.background}</h5> : <h5></h5>}
-                <button>test submit</button>
-                {/* <button type="submit" disabled={Object.values(error).length > 0}>Update Avatar</button> */}
+                {/* <button>test submit</button> */}
+                <button type="submit" disabled={Object.values(error).length > 0}>Update Avatar</button>
               </form>
             </div>
           </div>
@@ -288,86 +285,170 @@ function AvatarFormPage() {
             <form className="form-create-avatar" onSubmit={handleSubmit}>
               <h3>Select body:</h3>
               <div className="body-grid-container">
-                {bodies.map((body, id) => (
-                  <div className="body-grid-item" key={id}>
-                    <input
-                      type="radio" name="body"
-                      id={body} className="input-hidden" onChange={() => setBody(body)} />
-                    <label htmlFor={body}>
-                      <img
-                        src={body}
-                        alt="body options" />
-                    </label>
-                  </div>
-                ))}
+                {bodies.map((bodyone, id) => {
+                  if (body == bodyone) {
+                    return <div className={bodystyle} key={id}>
+                      <input
+                        type="radio" name="body"
+                        id={bodyone} className="input-hidden" onChange={() => setBody(bodyone)} />
+                      <label htmlFor={bodyone}>
+                        <img
+                          src={bodyone}
+                          alt="body options" />
+                      </label>
+                    </div>
+                  } else {
+                    return <div className="body-grid-item" key={id}>
+                      <input
+                        type="radio" name="body"
+                        id={bodyone} className="input-hidden" onChange={() => {
+                          setBody(bodyone)
+                          setBodyStyle("body-grid-item")
+                        }} />
+                      <label htmlFor={bodyone}>
+                        <img
+                          src={bodyone}
+                          alt="body options" />
+                      </label>
+                    </div>
+                  }
+                })}
               </div>
               {error.body ? <h5>{error.body}</h5> : <h5></h5>}
 
               <h3>Select skin:</h3>
               <div className="body-grid-container">
-                {skins.map((skin, id) => (
-                  <div className="body-grid-item" key={id}>
-                    <input
-                      type="radio" name="skin"
-                      id={skin} className="input-hidden" onChange={() => setSkin(skin)} />
-                    <label htmlFor={skin}>
-                      <img
-                        src={skin}
-                        alt="skin options" />
-                    </label>
-                  </div>
-                ))}
+                {skins.map((skinone, id) => {
+                  if (skinone == skin) {
+                    return <div className={skinstyle} key={id}>
+                      <input
+                        type="radio" name="skin"
+                        id={skinone} className="input-hidden" onChange={() => setSkin(skinone)} />
+                      <label htmlFor={skinone}>
+                        <img
+                          src={skinone}
+                          alt="skin options" />
+                      </label>
+                    </div>
+                  }
+                  else {
+                    return <div className="body-grid-item" key={id}>
+                      <input
+                        type="radio" name="skin"
+                        id={skinone} className="input-hidden" onChange={() => {
+                          setSkin(skinone)
+                          setSkinStyle("body-grid-item")
+                        }} />
+                      <label htmlFor={skinone}>
+                        <img
+                          src={skinone}
+                          alt="skin options" />
+                      </label>
+                    </div>
+                  }
+                })}
               </div>
               {error.skin ? <h5>{error.skin}</h5> : <h5></h5>}
 
               <h3>Select hair:</h3>
               <div className="body-grid-container">
-                {hairs.map((hair, id) => (
-                  <div className="body-grid-item" key={id}>
-                    <input
-                      type="radio" name="hair"
-                      id={hair} className="input-hidden" onChange={() => sethair(hair)} />
-                    <label htmlFor={hair}>
-                      <img
-                        src={hair}
-                        alt="hair options" />
-                    </label>
-                  </div>
-                ))}
+                {hairs.map((hairone, id) => {
+                  if (hairone == hair) {
+                    return <div className={hairstyle} key={id}>
+                      <input
+                        type="radio" name="hair"
+                        id={hairone} className="input-hidden" onChange={() => sethair(hairone)} />
+                      <label htmlFor={hairone}>
+                        <img
+                          src={hairone}
+                          alt="hair options" />
+                      </label>
+                    </div>
+                  }
+                  else {
+                    return <div className="body-grid-item" key={id}>
+                      <input
+                        type="radio" name="hair"
+                        id={hairone} className="input-hidden" onChange={() => {
+                          sethair(hairone)
+                          setHairStyle("body-grid-item")
+                        }} />
+                      <label htmlFor={hairone}>
+                        <img
+                          src={hairone}
+                          alt="hair options" />
+                      </label>
+                    </div>
+                  }
+                })}
               </div>
               {error.hair ? <h5>{error.hair}</h5> : <h5></h5>}
 
               <h3>Select extra:</h3>
               <div className="body-grid-container">
-                {extras.map((extra, id) => (
-                  <div className="body-grid-item" key={id}>
-                    <input
-                      type="radio" name="extra"
-                      id={extra} className="input-hidden" onChange={() => setExtra(extra)} />
-                    <label htmlFor={extra}>
-                      <img
-                        src={extra}
-                        alt="extra options" />
-                    </label>
-                  </div>
-                ))}
+              {extras.map((extraone, id) => {
+                    if (extraone == extra) {
+                      return <div className={extrastyle} key={id}>
+                        <input
+                          type="radio" name="extra"
+                          id={extraone} className="input-hidden" onChange={() => setExtra(extraone)} />
+                        <label htmlFor={extraone}>
+                          <img
+                            src={extraone}
+                            alt="extra options" />
+                        </label>
+                      </div>
+                    }
+                    else {
+                      return <div className="body-grid-item" key={id}>
+                        <input
+                          type="radio" name="extra"
+                          id={extraone} className="input-hidden" onChange={() => {
+                            setExtra(extraone)
+                            setExtraStyle("body-grid-item")
+                          }} />
+                        <label htmlFor={extraone}>
+                          <img
+                            src={extraone}
+                            alt="extra options" />
+                        </label>
+                      </div>
+                    }
+                  })}
               </div>
               {error.extra ? <h5>{error.extra}</h5> : <h5></h5>}
 
               <h3>Select background:</h3>
               <div className="body-grid-container">
-                {backgrounds.map((background, id) => (
-                  <div className="body-grid-item" key={id}>
-                    <input
-                      type="radio" name="background"
-                      id={background} className="input-hidden" onChange={() => setbackGround(background)} />
-                    <label htmlFor={background}>
-                      <img
-                        src={background}
-                        alt="background options" />
-                    </label>
-                  </div>
-                ))}
+              {backgrounds.map((backgroundone, id) => {
+                    if (backgroundone == background) {
+                      return <div className={backgroundstyle} key={id}>
+                        <input
+                          type="radio" name="background"
+                          id={backgroundone} className="input-hidden" onChange={() => setbackGround(backgroundone)} />
+                        <label htmlFor={backgroundone}>
+                          <img
+                            src={backgroundone}
+                            alt="background options" />
+                        </label>
+                      </div>
+                    }
+                    else {
+                      return <div className="body-grid-item" key={id}>
+                        <input
+                          type="radio" name="background"
+                          id={backgroundone} className="input-hidden" onChange={() => {
+                            setbackGround(backgroundone)
+                            setBackgroundStyle("body-grid-item")
+                          }} />
+                        <label htmlFor={backgroundone}>
+                          <img
+                            src={backgroundone}
+                            alt="background options" />
+                        </label>
+                      </div>
+                    }
+                  })}
               </div>
               {error.background ? <h5>{error.background}</h5> : <h5></h5>}
 

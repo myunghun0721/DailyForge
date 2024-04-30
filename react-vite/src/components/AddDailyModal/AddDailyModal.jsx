@@ -42,9 +42,9 @@ function AddDailyModal() {
     useEffect(() => {
         const errObj = {}
         if (title.length < 4) errObj.title = "Title must longer than 4 characters"
-        if (title.length > 20) errObj.title = "Title must less than 20 characters"
+        if (title.length > 50) errObj.title = "Title must less than 50 characters"
         if (note.length < 10) errObj.note = "Note must longer than 10 characters"
-        if (note.length > 100) errObj.note = "Note must less than 100 characters"
+        if (note.length > 200) errObj.note = "Note must less than 200 characters"
         if (!difficulty) errObj.difficulty = "Difficulty required"
         if (!startDate) errObj.startDate = "Start Date required"
 
@@ -55,12 +55,12 @@ function AddDailyModal() {
         <div className='create-modal'>
             <h1>Create your daily</h1>
             <form className="form-create-daily" onSubmit={handleSubmit}>
-                <label>
+                <label>Title:
                     <input type="text" name="title" placeholder={"Title"} value={title} onChange={(e) => setTitle(e.target.value)} />
                 </label>
                 {error.title ? <h5>{error.title}</h5> : <h5></h5>}
 
-                <label>
+                <label>Note:
                     <input type="text" name="note" placeholder={"Your note goes here..."} value={note} onChange={(e) => setNote(e.target.value)} />
                 </label>
 
