@@ -30,14 +30,12 @@ input[type=radio]+label>img {
     gap:10px;
 }
 
-.body-grid-item {
-    border: 1px solid #fff;
-}
 
 .body-grid-item img {
     width: 100%;
     cursor: pointer;
     height: auto;
+    border: 1px solid white;
 }
 
 .create-avatar {
@@ -87,4 +85,13 @@ input[type=radio]+label>img {
 .delete-avatar-button:hover {
     color: white;
     background-color: #c2bbce;
+}
+.body-grid-item-current{
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 3px 3px #432874
+}
+.body-grid-item-current img {
+    width: 100%;
+    cursor: pointer;
+    height: auto;
 }
