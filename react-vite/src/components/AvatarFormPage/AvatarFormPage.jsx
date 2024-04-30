@@ -108,6 +108,10 @@ function AvatarFormPage() {
                 <div className="body-grid-container">
                   {bodies.map((body, id) => {
                     if (avatar.body == body) {
+                      {
+                        console.log(body)
+                        setBody(body)
+                      }
                       return <div className={bodystyle} key={id}>
                         <input
                           type="radio" name="body"
