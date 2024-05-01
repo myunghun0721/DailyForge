@@ -19,7 +19,7 @@ function Navigation() {
             <NavLink to="/monster">Monster</NavLink>
           </div>
 
-          <div>
+          <div className="nav-profile">
             <ProfileButton />
           </div>
         </nav>}

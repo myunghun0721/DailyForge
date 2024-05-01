@@ -23,10 +23,9 @@
 }
 .user-info{
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 180px;
     color: white;
-    font-weight: bold;
 }
 .user-info h2{
     margin-bottom: 5px;

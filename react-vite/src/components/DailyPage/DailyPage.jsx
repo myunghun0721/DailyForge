@@ -1,104 +1,68 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
-import "./DailyPage.css"
+import "./DailyPage.css"; // Your custom styles for DailyPage
 import { fetchDailies, thunkFetchDailies } from "../../redux/dailies";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import AddDailyModal from "../AddDailyModal";
 import DeleteDailyModal from "../DeleteDailyModal";
 import UpdateDailyModal from "../UpdateDailyModal";
 
-
 function DailyPage() {
   const dispatch = useDispatch();
-
-  const sessionUser = useSelector((state) => state.session.user)
-  const dailiesObj = useSelector(state => state.dailies)
-  const dailies = Object.values(dailiesObj)
-  const navigate = useNavigate()
-
-
-  if (!sessionUser) {
-    navigate("/")
-  }
+  const sessionUser = useSelector((state) => state.session.user);
+  const dailiesObj = useSelector(state => state.dailies);
+  const dailies = Object.values(dailiesObj);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
       if (sessionUser) {
-        await dispatch(thunkFetchDailies())
+        await dispatch(thunkFetchDailies());
       }
-    })()
-  }, [dispatch, sessionUser])
+    })();
+  }, [dispatch, sessionUser]);
 
   function formatDate(dateString) {
-
-    const newDate = new Date(dateString.toLocaleString())
-
+    const newDate = new Date(dateString.toLocaleString());
     const year = newDate.getFullYear();
     const month = ('0' + (newDate.getMonth() + 1)).slice(-2);
     const day = ('0' + (parseInt(newDate.getDate()) + 1)).slice(-2);
     const dateStr = `${year}-${month}-${day}`;
-    return dateStr
+    return dateStr;
   }
 
-
   return (
-    <>
-      {dailies && dailies.length ? <div className="daily-wrapper">
-        <div className="manage-daily">
-          <h1>Manage my Dailies</h1>
-          <button className="add-daily-button">
-
-            <OpenModalMenuItem
-              itemText="Add Daily"
-              //     onItemClick={closeMenu}
-              modalComponent={<AddDailyModal />}
-            />
-          </button>
-        </div>
-        <div className="daily-container">
-          {dailies.map(daily => (
-            <div key={daily.id} className="daily-item">
-              <h2>{daily.title} </h2>
-              <p>{daily.note}</p>
-              <p><strong>Start Date: </strong>{formatDate(daily.start_date)}</p>
-              <p><strong>Difficulty: </strong>{daily.difficulty}</p>
-              {/* <p>Do I do this again? {
-                // console.log(daily)
-              }
-              </p> */}
-              <button className="add-daily-button">
-                <OpenModalMenuItem
-                  itemText="Update Daily"
-                  //     onItemClick={closeMenu}
-                  modalComponent={<UpdateDailyModal dailyId={daily.id} />}
-                />
-              </button>
-              <button className="add-daily-button">
-                <OpenModalMenuItem
-                  itemText="Delete Daily"
-                  //     onItemClick={closeMenu}
-                  modalComponent={<DeleteDailyModal dailyId={daily.id} />}
-                />
-              </button>
+    <div className="habitica-wrapper">
+      {!sessionUser && <Navigate to="/" />}
+      <div className="habitica-header">
+        <h1>My Habits</h1>
+        <OpenModalMenuItem
+          itemText="Add Habit"
+          modalComponent={<AddDailyModal />}
+        />
+      </div>
+      <div className="habitica-habits">
+        {dailies.map(daily => (
+          <div key={daily.id} className="habitica-habit">
+            <h2>{daily.title}</h2>
+            <p>{daily.note}</p>
+            <p><strong>Start Date: </strong>{formatDate(daily.start_date)}</p>
+            <p><strong>Difficulty: </strong>{daily.difficulty}</p>
+            <div className="habitica-habit-actions">
+              <OpenModalMenuItem
+                itemText="Update"
+                modalComponent={<UpdateDailyModal dailyId={daily.id} />}
+              />
+              <OpenModalMenuItem
+                itemText="Delete"
+                modalComponent={<DeleteDailyModal dailyId={daily.id} />}
+              />
             </div>
-
-          ))}
-        </div>
-      </div> :
-        <div className="manage-daily">
-          <h1>Create my Dailies</h1>
-          <button className="add-daily-button">
-
-            <OpenModalMenuItem
-              itemText="Add Daily"
-              //     onItemClick={closeMenu}
-              modalComponent={<AddDailyModal />}
-            />
-          </button>
-        </div>
-      }
-    </>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

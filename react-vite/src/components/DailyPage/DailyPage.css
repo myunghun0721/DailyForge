@@ -1,55 +1,62 @@
-.daily-container{
+.habitica-wrapper {
+    padding: 20px 40px;
+    background-color: #C2BBCE;
+}
+
+.habitica-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.habitica-header h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.habitica-habits {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    padding: 10px;
-    gap: 10px;
+    grid-gap: 20px;
 }
 
-.daily-item button{
-    margin: 5px;
-}
-.daily-item button li{
-    padding: 5px;
-}
-.daily-item{
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+.habitica-habit {
+    background-color: #fff;
     padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     word-break: break-all;
-    text-align: center;
-    list-style: none;
-}
-.daily-wrapper{
-    margin: 10px;
-}
-.manage-daily{
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-around;
-    align-items: center;
-}
-.manage-daily li {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
-.manage-daily button{
-    width: 200px;
-    height: 80px;
-    border: 1px solid #301b57; ;
-    background-color: white;
-    color: black;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-    list-style-type: none;
+    color: #333;
 }
 
-.manage-daily button:hover{
-    background-color:  #413a4d ;
-    color: white;
+.habitica-habit h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.habitica-habit p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.habitica-habit-actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.habitica-wrapper li {
+    background-color: #36205D;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    list-style: none;
+    font-weight: bold;
+}
+
+.habitica-wrapper li:hover {
+    background-color: #4e367a;
 }

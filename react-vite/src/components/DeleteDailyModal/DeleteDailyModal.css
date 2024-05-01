@@ -34,3 +34,10 @@
     justify-content: center;
     align-items: center;
 }
+#deleteModal button {
+    border: none;
+    cursor: pointer;
+}
+#deleteModal button:hover {
+    color: white;
+}

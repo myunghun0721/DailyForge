@@ -25,12 +25,12 @@ function HomePage() {
   }
 
   const Container = styled.div`
-  display: flex;
+    display: flex;
   `;
 
   useEffect(() => {
     (async () => {
-      if(sessionUser){
+      if (sessionUser) {
         await dispatch(thunkFetchAvatars())
         const dailies = await dispatch(thunkFetchDailies());
         setState(initializeState(dailies));

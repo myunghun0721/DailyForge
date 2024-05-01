@@ -84,7 +84,7 @@ input[type=radio]+label>img {
 }
 .delete-avatar-button:hover {
     color: white;
-    background-color: #c2bbce;
+    background-color: #9989b4;
 }
 .body-grid-item-current{
     border: 2px solid rgb(255, 255, 255);
