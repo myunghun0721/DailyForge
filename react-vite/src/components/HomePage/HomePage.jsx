@@ -26,6 +26,7 @@ function HomePage() {
 
   const Container = styled.div`
     display: flex;
+    height: 100%;
   `;
 
   useEffect(() => {

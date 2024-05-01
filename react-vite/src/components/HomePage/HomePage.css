@@ -9,7 +9,7 @@
 .avatar-container{
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 90%;
     height: 150px;
 }
 .avatar-container img{

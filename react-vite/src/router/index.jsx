@@ -6,6 +6,7 @@ import HomePage from '../components/HomePage';
 import AvatarPage from '../components/AvatarPage';
 import AvatarFormPage from '../components/AvatarFormPage';
 import DailyPage from '../components/DailyPage/DailyPage';
+import FooterPage from '../components/FooterPage';
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ export const router = createBrowserRouter([
       {
         path: "/*",
         element: <h1>Page Not Found</h1>,
+        // element: <FooterPage/>,
       },
     ],
   },

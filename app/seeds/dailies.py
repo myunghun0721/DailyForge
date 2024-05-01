@@ -54,7 +54,55 @@ def seed_dailes():
             difficulty="hard",
             start_date=datetime(2023, 12,10),
             repeats=1
-        )
+        ),
+        Daily(
+            user_id=1,
+            title="Going LA",
+            note="need to bring passport, id, SSN",
+            difficulty="normal",
+            start_date=datetime(2024, 5,1),
+            repeats=0
+        ),
+        Daily(
+            user_id=1,
+            title="Let's exercise",
+            note="running machine",
+            difficulty="normal",
+            start_date=datetime(2024, 5,1),
+            repeats=0
+        ),
+        Daily(
+            user_id=1,
+            title="Play game",
+            note="Lost Ark region raid",
+            difficulty="hard",
+            start_date=datetime(2024, 5,2),
+            repeats=1
+        ),
+        Daily(
+            user_id=1,
+            title="Study coding",
+            note="What is database?",
+            difficulty="hard",
+            start_date=datetime(2024, 5,1),
+            repeats=1
+        ),
+        Daily(
+            user_id=1,
+            title="Need to buy bicycle",
+            note="mountain? road? hybrid??",
+            difficulty="hard",
+            start_date=datetime(2024, 5,1),
+            repeats=0
+        ),
+        Daily(
+            user_id=1,
+            title="Appointment with my doctor...",
+            note="right shoulder still hard to move",
+            difficulty="easy",
+            start_date=datetime(2024, 5,4),
+            repeats=0
+        ),
     ]
 
     for daily in dailes:
