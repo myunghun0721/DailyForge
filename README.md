@@ -1,4 +1,6 @@
-# DailyForge
+# DailyForge / Habitica project
+Motivate yourself to achieve your goals.
+It's time to have fun when you get things done! Join over 4 million Habiticans and improve your life one task at a time.
 
 ## Link to live site:
 https://habitica.onrender.com/
