@@ -32,11 +32,10 @@ https://habitica.onrender.com/
 8. Next, run npm run build to create the dist folder. This command includes the --watch flag. This flag will rebuild the dist folder whenever you change your code, keeping the production version up to date.
 
 ## Avatar
-* Logged-in users can create, view, edit, and delete their avatars.
-* Logged-out users can view avatars.
+* Logged-in users can create, view, edit, and delete their avatar.
 
 ## Daily
-* Logged-in users can create, view, edit and delete their daily.
+* Logged-in users can create, view, edit and delete their dailies.
 
 ## Party
 * Logged-in users can create, view, edit, and delete party
