@@ -2,6 +2,15 @@
 Motivate yourself to achieve your goals.
 It's time to have fun when you get things done! Join over 4 million Habiticans and improve your life one task at a time.
 
+![image](https://github.com/myunghun0721/DailyForge/assets/46683500/1948206d-c571-48be-a95f-168e1681d56f)
+
+![image](https://github.com/myunghun0721/DailyForge/assets/46683500/0ffb7cb6-b208-4617-8ca1-e6cec293d4f8)
+
+![image](https://github.com/myunghun0721/DailyForge/assets/46683500/23f4f08f-64ac-4307-a1f6-5e71ccc24106)
+
+![image](https://github.com/myunghun0721/DailyForge/assets/46683500/3bee85af-fdbb-4529-bc7f-8c90dfcbca1b)
+
+
 ## Link to live site:
 https://habitica.onrender.com/
 
