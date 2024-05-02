@@ -51,4 +51,4 @@ https://habitica.onrender.com/
 * Logged-in user (party) can chat with the party members
 
 ## Shop Search
-* Logged-in/out users can search gears
+* Logged-in users can search gears
