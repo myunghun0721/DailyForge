@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/*",
-        element: <h1>Page Not Found</h1>,
+        element: <h1>Feature coming soon!</h1>,
         // element: <FooterPage/>,
       },
     ],
