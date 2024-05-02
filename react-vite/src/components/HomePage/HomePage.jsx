@@ -150,7 +150,11 @@ function HomePage() {
             return <Column key={column.id} column={column} tasks={tasks} />;
           })}
         </Container>
-      </DragDropContext> : <NavLink to="/daily">No Dailies found. Create them here</NavLink>}
+      </DragDropContext> :
+      <div className="no-info">
+        <NavLink to="/daily">No Dailies found. Create them here</NavLink>
+      </div>
+      }
     </>
   );
 }

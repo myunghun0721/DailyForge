@@ -32,6 +32,7 @@ function DailyPage() {
     return dateStr;
   }
 
+
   return (
     <div className="habitica-wrapper">
       {!sessionUser && <Navigate to="/" />}
@@ -42,8 +43,9 @@ function DailyPage() {
           modalComponent={<AddDailyModal />}
         />
       </div>
+
       <div className="habitica-habits">
-        {dailies.map(daily => (
+        {dailies.length ? dailies.map(daily => (
           <div key={daily.id} className="habitica-habit">
             <h2>{daily.title}</h2>
             <p>{daily.note}</p>
@@ -60,9 +62,16 @@ function DailyPage() {
               />
             </div>
           </div>
-        ))}
+        ))
+          :
+          <div className="no-info">
+            No Dailies found. Create them here
+          </div>
+        }
       </div>
+
     </div>
+
   );
 }
 

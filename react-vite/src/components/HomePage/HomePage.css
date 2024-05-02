@@ -30,3 +30,13 @@
 .user-info h2{
     margin-bottom: 5px;
 }
+.no-info{
+    display: flex;
+    width: 90%;
+    height: 100vh;
+    font-size: 28px;
+    justify-content: center;
+}
+.no-info a{
+    margin-top: 50px;
+}
