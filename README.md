@@ -31,4 +31,25 @@ https://habitica.onrender.com/
 7. To run the React frontend in development: -cd into the react-vite directory and run npm i to install dependencies.
 8. Next, run npm run build to create the dist folder. This command includes the --watch flag. This flag will rebuild the dist folder whenever you change your code, keeping the production version up to date.
 
-## Features
+## Avatar
+* Logged-in users can create, view, edit, and delete their avatars.
+* Logged-out users can view avatars.
+
+## Daily
+* Logged-in users can create, view, edit and delete their daily.
+
+## Party
+* Logged-in users can create, view, edit, and delete party
+
+## Monster
+* Logged-in users can create, view, edit, and delete monster
+
+# Bonus Features
+## Event
+* Logged-in user can start raid (fight with monster)
+
+## Chat
+* Logged-in user (party) can chat with the party members
+
+## Shop Search
+* Logged-in/out users can search gears
