@@ -66,3 +66,8 @@ https://habitica.onrender.com/
 
 ### More about this project.
 https://github.com/myunghun0721/DailyForge/wiki/Database-Schema-and-Backend-Routes
+
+### Technologies
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,python)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=js,react,redux,flask)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=js,postgres,sqlite)](https://skillicons.dev)
