@@ -63,3 +63,6 @@ https://habitica.onrender.com/
 
 ## Shop Search
 * Logged-in users can search gears
+
+### More about this project.
+https://github.com/myunghun0721/DailyForge/wiki/Database-Schema-and-Backend-Routes
