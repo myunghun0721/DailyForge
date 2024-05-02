@@ -68,6 +68,11 @@ https://habitica.onrender.com/
 https://github.com/myunghun0721/DailyForge/wiki/Database-Schema-and-Backend-Routes
 
 ### Technologies
-[![My Skills](https://skillicons.dev/icons?i=js,html,css,python)](https://skillicons.dev)
-[![My Skills](https://skillicons.dev/icons?i=js,react,redux,flask)](https://skillicons.dev)
-[![My Skills](https://skillicons.dev/icons?i=js,postgres,sqlite)](https://skillicons.dev)
+![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
+![html](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![css](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![postgres](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![sqlite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
