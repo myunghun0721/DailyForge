@@ -12,7 +12,7 @@ It's time to have fun when you get things done! Join over 4 million Habiticans a
 
 
 ## Link to live site:
-https://habitica.onrender.com/
+[https://habitica.onrender.com/](https://dailyforge-1.onrender.com)
 
 ## Getting started
 
