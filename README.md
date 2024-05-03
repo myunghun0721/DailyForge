@@ -2,13 +2,28 @@
 Motivate yourself to achieve your goals.
 It's time to have fun when you get things done! Join over 4 million Habiticans and improve your life one task at a time.
 
+## Landing page
 ![image](https://github.com/myunghun0721/DailyForge/assets/46683500/1948206d-c571-48be-a95f-168e1681d56f)
 
-![image](https://github.com/myunghun0721/DailyForge/assets/46683500/0ffb7cb6-b208-4617-8ca1-e6cec293d4f8)
+## Home page
+![image](https://github.com/myunghun0721/DailyForge/assets/46683500/8bfd2c74-f7f3-4d31-84b9-bac94d571851)
 
-![image](https://github.com/myunghun0721/DailyForge/assets/46683500/23f4f08f-64ac-4307-a1f6-5e71ccc24106)
+![image](https://github.com/myunghun0721/DailyForge/assets/46683500/175105dd-504d-4798-aaf2-0db58620030d)
+
+## Avatar page
+![image](https://github.com/myunghun0721/DailyForge/assets/46683500/28a70aac-8f53-4495-b273-f5fb0e048d96)
 
 ![image](https://github.com/myunghun0721/DailyForge/assets/46683500/3bee85af-fdbb-4529-bc7f-8c90dfcbca1b)
+
+## Daily page
+![image](https://github.com/myunghun0721/DailyForge/assets/46683500/aac0009c-f729-4fad-84bd-0e10a6ec2750)
+
+![image](https://github.com/myunghun0721/DailyForge/assets/46683500/c847b4f0-2c8f-498e-b46a-922937e74ee3)
+
+![image](https://github.com/myunghun0721/DailyForge/assets/46683500/d4f7dc4b-e565-414a-87e6-1f98deb720d1)
+
+## Sign-up
+![image](https://github.com/myunghun0721/DailyForge/assets/46683500/3b27c455-bb5f-4b07-a6a2-8a50643ada64)
 
 
 ## Link to live site:
