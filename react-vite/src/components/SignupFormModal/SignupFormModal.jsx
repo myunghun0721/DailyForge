@@ -49,12 +49,18 @@ function SignupFormModal() {
     if (password.length > 20) errObj.password = "password must less than 20 characters"
     if (!confirmPassword.length) errObj.confirmPassword = "confirmPassword required"
 
+    const user_test =  /^[a-zA-Z0-9.+_-]+[a-zA-Z0-9.-]$/;
+    const username_result = user_test.test(username);
+    if (!username_result) {
+      errObj.username = "Please provide a valid username."
+    }
+
     const regex = /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,15}$/;
     const result = regex.test(email);
     if (!result) {
       errObj.email = "Please provide a valid email."
     }
-    console.log(username.length)
+
     setErrors(errObj)
   }, [email, username, password, confirmPassword])
 
@@ -103,7 +109,7 @@ function SignupFormModal() {
           />
         </label>
         {errors.confirmPassword ? <p>{errors.confirmPassword}</p> : <p> </p>}
-        <button type="submit">Sign Up</button>
+        <button type="submit" disabled={Object.values(errors).length > 0}>Sign up</button>
       </form>
     </div>
   );
