@@ -1,9 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import './AddDailyModal.css'
-import { thunkDeleteAvatars, thunkFetchAvatars } from '../../redux/avatars';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { thunkAddDailies } from '../../redux/dailies';
 // import { thunkDeleteSong } from '../../redux/songs';
 // import { deleteSong } from '../../redux/user';
@@ -15,7 +13,7 @@ function AddDailyModal() {
     const [note, setNote] = useState("")
     const [difficulty, setDifficulty] = useState()
     const [startDate, setStartDate] = useState()
-    const [repeat, setRepeat] = useState(false)
+    // const [repeat, setRepeat] = useState(false)
     const [error, setError] = useState({})
     const {closeModal} = useModal()
 
@@ -27,7 +25,7 @@ function AddDailyModal() {
         formData.append('note', note)
         formData.append('difficulty', difficulty)
         formData.append('start_date', startDate)
-        formData.append('repeats', repeat)
+        formData.append('repeats', false)
 
         setError({})
 

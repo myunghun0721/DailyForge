@@ -51,7 +51,7 @@ function LoginFormPage() {
         <h1>Welcome to DailyForge!</h1>
         <img src="https://habitica.com/static/img/home-main@3x.ffc32b12.png" alt="main-page-img"/>
         <h1>Motivate yourself to achieve your goals.</h1>
-        <p>It's time to have fun when you get things done! Join over 4 million Habiticans and improve your life one task at a time.</p>
+        <p>It&apos;s time to have fun when you get things done! Join over 4 million Habiticans and improve your life one task at a time.</p>
       </div>
       <div className="main-page-right">
       {errors.length > 0 &&

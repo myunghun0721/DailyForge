@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./AvatarFormPage.css"
 import { thunkCreateAvatars, thunkFetchAvatars, thunkUpdateAvatar } from "../../redux/avatars";
 import DeleteAvatarModal from "../deleteAvatarModal/DeleteAvatarModal";
@@ -16,7 +16,6 @@ function AvatarFormPage() {
   const navigate = useNavigate()
   const avatar = useSelector(state => state.avatars.avatars)
   const sessionUser = useSelector((state) => state.session.user);
-  const navigation = useNavigate()
 
   const [body, setBody] = useState(avatar.body ? avatar.body : bodies[0])
   const [skin, setSkin] = useState(avatar.skin ? avatar.skin : skins[0])
@@ -29,7 +28,6 @@ function AvatarFormPage() {
   const [hairstyle, setHairStyle] = useState("body-grid-item-current")
   const [extrastyle, setExtraStyle] = useState("body-grid-item-current")
   const [backgroundstyle, setBackgroundStyle] = useState("body-grid-item-current")
-  const [bodycheck, setBodyCheck] = useState(true)
 
   if (!sessionUser) {
     navigate("/")
@@ -81,6 +79,7 @@ function AvatarFormPage() {
 
   useEffect(() => {
     const errObj = {}
+
     if (!body.length) errObj.body = "body required"
     if (!skin.length) errObj.skin = "skin required"
     if (!hair.length) errObj.hair = "hair required"

@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
 import "../HomePage/HomePage.css"
 import { thunkFetchAvatars } from "../../redux/avatars";
 import yellow from "../../../public/avatar/backgrounds/background_yellow.png"
@@ -10,12 +9,6 @@ function AvatarPage() {
 
   const avatar = useSelector(state => state.avatars.avatars)
   const sessionUser = useSelector((state) => state.session.user);
-
-
-  if (!sessionUser) {
-    navigate("/")
-    return
-  }
 
   useEffect(() => {
     dispatch(thunkFetchAvatars())
