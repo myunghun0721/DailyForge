@@ -6,10 +6,10 @@ from sqlalchemy.sql import text
 def seed_avatars():
 
     avatars = [
-        Avatar(user_id=1, body='../../public/avatar/body/yellow/slim_shirt_yellow.png', skin='../../public/avatar/skin/skin_f5a76e.png', hair='../../public/avatar/hair/color/black/hair_bangs_1_black.png', extra='../../public/avatar/extra/animal_ears/headAccessory_special_foxEars.png', backgrounds='../../public/avatar/backgrounds/background_blue.png'),
-        Avatar(user_id=2, body='../../public/avatar/body/pink/broad_shirt_pink.png', skin='../../public/avatar/skin/zany_skin/animals/skin_fox.png', hair='../../public/avatar/hair/color/white/hair_bangs_2_white.png', extra='../../public/avatar/extra/wheelchair/button_chair_black.png', backgrounds='../../public/avatar/backgrounds/background_purple.png'),
-        Avatar(user_id=3, body='../../public/avatar/body/black/broad_shirt_black.png', skin='../../public/avatar/skin/skin_6bd049.png', hair='../../public/avatar/hair/color/black/hair_bangs_1_black.png', extra='../../public/avatar/extra/wheelchair/button_chair_pink.png', backgrounds='../../public/avatar/backgrounds/background_violet.png'),
-        Avatar(user_id=4, body='../../public/avatar/body/blue/broad_shirt_blue.png', skin='../../public/avatar/skin/skin_c3e1dc.png', hair='../../public/avatar/hair/color/blond/hair_bangs_4_blond.png', extra='../../public/avatar/extra/wheelchair/button_chair_handleless_black.png', backgrounds='../../public/avatar/backgrounds/background_red.png')
+        Avatar(user_id=1, body='/public/avatar/body/yellow/slim_shirt_yellow.png', skin='/public/avatar/skin/skin_f5a76e.png',
+               hair='/public/avatar/hair/color/black/hair_bangs_4_black.png', extra='/public/avatar/extra/wheelchair/button_chair_red.png',
+               backgrounds='/public/avatar/backgrounds/background_blue.png'),
+
     ]
 
     for avatar in avatars:

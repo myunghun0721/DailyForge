@@ -18,6 +18,8 @@ function AvatarFormPage() {
   const sessionUser = useSelector((state) => state.session.user);
   const navigation = useNavigate()
 
+  if (!avatar) return
+
   const [body, setBody] = useState(avatar.body ? avatar.body : bodies[0])
   const [skin, setSkin] = useState(avatar.skin ? avatar.skin : skins[0])
   const [hair, sethair] = useState(avatar.hairs ? avatar.hairs : hairs[0])
