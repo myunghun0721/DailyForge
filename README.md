@@ -79,6 +79,68 @@ https://dailyforge-1.onrender.com
 ## Shop Search
 * Logged-in users can search gears
 
+## End Points
+### Avatars
+`GET /api/avatar`
+  * Return the information for the avatar
+
+`POST /api/avatars/new`
+  * Creates a new avatar
+
+`PUT /api/avatars/:id`
+  * Edits the information for one avatar
+
+`DELETE /api/avatars/:id`
+  * Deletes an avatar
+
+### Dailies
+`GET /api/dailies`
+  * Return the information for all dailies
+
+`POST /api/dailies/new`
+  * Creates new dailies
+
+`GET /api/dailies/:id`
+  * Return the information for one dailies
+
+`PUT /api/dailies/:id`
+  * Edits the information for one dailies
+
+`DELETE /api/dailies/:id`
+  * Deletes a dailies
+
+### Parties
+`GET /api/parties`
+  * Return the information for all parties
+
+`POST /api/parties/new`
+  * Creates new dailies
+
+`GET /api/parties/:id`
+  * Return the information to one party
+
+`PUT /api/parties/:id`
+  * Edits the information for one party
+
+`DELETE /api/parties/:id`
+  * Deletes a party
+
+### Monsters
+`GET /api/monsters`
+  * Return the information for all monsters
+
+`POST /api/monsters/new`
+  * Creates new monster
+
+`GET /api/monsters/:id`
+  * Return the information for one monster
+
+`PUT /api/monsters/:id`
+  * Edits the information for one monster
+
+`DELETE /api/parties/:id`
+  * Deletes a monster
+
 ### More about this project.
 https://github.com/myunghun0721/DailyForge/wiki/Database-Schema-and-Backend-Routes
 
