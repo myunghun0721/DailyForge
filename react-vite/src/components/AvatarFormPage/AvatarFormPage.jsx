@@ -18,8 +18,6 @@ function AvatarFormPage() {
   const sessionUser = useSelector((state) => state.session.user);
   const navigation = useNavigate()
 
-  if (!avatar) return
-
   const [body, setBody] = useState(avatar.body ? avatar.body : bodies[0])
   const [skin, setSkin] = useState(avatar.skin ? avatar.skin : skins[0])
   const [hair, sethair] = useState(avatar.hairs ? avatar.hairs : hairs[0])
@@ -110,7 +108,7 @@ function AvatarFormPage() {
                 <h3>Select body:</h3>
                 <div className="body-grid-container">
                   {bodies.map((body, id) => {
-                    if (avatar.body.split('/public')[1] == body) {
+                    if (avatar.body == body) {
                       return <div className={bodystyle} key={id}>
                         <input
                           type="radio" name="body"
@@ -143,7 +141,7 @@ function AvatarFormPage() {
                 <h3>Select skin:</h3>
                 <div className="body-grid-container">
                   {skins.map((skin, id) => {
-                    if (avatar.skin.split('/public')[1] == skin) {
+                    if (avatar.skin == skin) {
                       return <div className={skinstyle} key={id}>
                         <input
                           type="radio" name="skin"
@@ -177,7 +175,7 @@ function AvatarFormPage() {
                 <h3>Select hair:</h3>
                 <div className="body-grid-container">
                   {hairs.map((hair, id) => {
-                    if (avatar.hair.split('/public')[1] == hair) {
+                    if (avatar.hair == hair) {
                       return <div className={hairstyle} key={id}>
                         <input
                           type="radio" name="hair"
@@ -211,7 +209,7 @@ function AvatarFormPage() {
                 <h3>Select extra:</h3>
                 <div className="body-grid-container">
                   {extras.map((extra, id) => {
-                    if (avatar.extra.split('/public')[1] == extra) {
+                    if (avatar.extra == extra) {
                       return <div className={extrastyle} key={id}>
                         <input
                           type="radio" name="extra"
@@ -245,7 +243,7 @@ function AvatarFormPage() {
                 <h3>Select background:</h3>
                 <div className="body-grid-container">
                   {backgrounds.map((background, id) => {
-                    if (avatar.backgrounds.split('/public')[1] == background) {
+                    if (avatar.backgrounds == background) {
                       return <div className={backgroundstyle} key={id}>
                         <input
                           type="radio" name="background"

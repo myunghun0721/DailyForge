@@ -6,9 +6,11 @@ from sqlalchemy.sql import text
 def seed_avatars():
 
     avatars = [
-        Avatar(user_id=1, body='/public/avatar/body/yellow/slim_shirt_yellow.png', skin='/public/avatar/skin/skin_f5a76e.png',
-               hair='/public/avatar/hair/color/black/hair_bangs_4_black.png', extra='/public/avatar/extra/wheelchair/button_chair_red.png',
-               backgrounds='/public/avatar/backgrounds/background_blue.png'),
+        Avatar(user_id=1, body='/avatar/body/yellow/slim_shirt_yellow.png',
+               skin='/avatar/skin/skin_f5a76e.png',
+               hair='/avatar/hair/color/white/hair_bangs_4_white.png',
+               extra='/avatar/extra/wheelchair/button_chair_red.png',
+               backgrounds='/avatar/backgrounds/background_violet.png'),
 
     ]
 
