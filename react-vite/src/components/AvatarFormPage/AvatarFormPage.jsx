@@ -110,7 +110,7 @@ function AvatarFormPage() {
                 <h3>Select body:</h3>
                 <div className="body-grid-container">
                   {bodies.map((body, id) => {
-                    if (avatar.body == body) {
+                    if (avatar.body.split('/public')[1] == body) {
                       return <div className={bodystyle} key={id}>
                         <input
                           type="radio" name="body"
@@ -143,7 +143,7 @@ function AvatarFormPage() {
                 <h3>Select skin:</h3>
                 <div className="body-grid-container">
                   {skins.map((skin, id) => {
-                    if (avatar.skin == skin) {
+                    if (avatar.skin.split('/public')[1] == skin) {
                       return <div className={skinstyle} key={id}>
                         <input
                           type="radio" name="skin"
@@ -177,7 +177,7 @@ function AvatarFormPage() {
                 <h3>Select hair:</h3>
                 <div className="body-grid-container">
                   {hairs.map((hair, id) => {
-                    if (avatar.hair == hair) {
+                    if (avatar.hair.split('/public')[1] == hair) {
                       return <div className={hairstyle} key={id}>
                         <input
                           type="radio" name="hair"
@@ -211,7 +211,7 @@ function AvatarFormPage() {
                 <h3>Select extra:</h3>
                 <div className="body-grid-container">
                   {extras.map((extra, id) => {
-                    if (avatar.extra == extra) {
+                    if (avatar.extra.split('/public')[1] == extra) {
                       return <div className={extrastyle} key={id}>
                         <input
                           type="radio" name="extra"
@@ -245,7 +245,7 @@ function AvatarFormPage() {
                 <h3>Select background:</h3>
                 <div className="body-grid-container">
                   {backgrounds.map((background, id) => {
-                    if (avatar.backgrounds == background) {
+                    if (avatar.backgrounds.split('/public')[1] == background) {
                       return <div className={backgroundstyle} key={id}>
                         <input
                           type="radio" name="background"
