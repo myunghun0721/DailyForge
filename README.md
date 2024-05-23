@@ -39,7 +39,7 @@ https://dailyforge-1.onrender.com
    pipenv install -r requirements.txt
    ```
 3. Create a .env file based on the example with proper settings for your development environment.
-4. Make sure the SQLite3 database connection url is in the .env file.
+4. Make sure the SQLite3 database connection URL is in the .env file.
 5. This starter organizes all tables inside the flask_schema schema, defined by the SCHEMA environment variable. Replace the value for SCHEMA with a unique name, making sure you use the snake_case convention.
 6. Get into your pipenv, migrate your database, seed your database, and run your Flask app:
    ```bash
@@ -58,10 +58,10 @@ https://dailyforge-1.onrender.com
 8. Next, run npm run build to create the dist folder. This command includes the --watch flag. This flag will rebuild the dist folder whenever you change your code, keeping the production version up to date.
 
 ## Avatar
-* Logged-in users can create, view, edit, and delete their avatar.
+* Logged-in users can create, view, edit, and delete their avatars.
 
 ## Daily
-* Logged-in users can create, view, edit and delete their dailies.
+* Logged-in users can create, view, edit, and delete their dailies.
 
 ## Party
 * Logged-in users can create, view, edit, and delete party
@@ -77,7 +77,7 @@ https://dailyforge-1.onrender.com
 * Logged-in user (party) can chat with the party members
 
 ## Shop Search
-* Logged-in users can search gears
+* Logged-in users can search for gears
 
 ## End Points
 ### Avatars
