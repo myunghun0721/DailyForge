@@ -14,6 +14,7 @@ class Avatar(db.Model):
     skin = db.Column(db.String(255), nullable=False)
     hair = db.Column(db.String(255), nullable=False)
     extra = db.Column(db.String(255), nullable=False)
+    exp = db.Column(db.Integer)
     backgrounds = db.Column(db.String(255), nullable=False)
 
     # relationships
@@ -26,5 +27,6 @@ class Avatar(db.Model):
             'skin' :self.skin,
             'hair' :self.hair,
             'extra' :self.extra,
+            'exp' : self.exp,
             'backgrounds' :self.backgrounds,
         }
