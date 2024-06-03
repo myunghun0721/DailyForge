@@ -10,7 +10,6 @@ def seed_avatars():
                skin='/avatar/skin/skin_f5a76e.png',
                hair='/avatar/hair/color/white/hair_bangs_4_white.png',
                extra='/avatar/extra/wheelchair/button_chair_red.png',
-               exp=100,
                backgrounds='/avatar/backgrounds/background_violet.png'),
 
     ]

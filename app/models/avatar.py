@@ -14,7 +14,6 @@ class Avatar(db.Model):
     skin = db.Column(db.String(255), nullable=False)
     hair = db.Column(db.String(255), nullable=False)
     extra = db.Column(db.String(255), nullable=False)
-    exp = db.Column(db.Integer)
     backgrounds = db.Column(db.String(255), nullable=False)
 
     # relationships
