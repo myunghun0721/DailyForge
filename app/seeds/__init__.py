@@ -20,7 +20,7 @@ def seed():
         # Make sure to add all your other model's undo functions below
         undo_avatars()
         undo_dailes()
-        # undo_users()
+        undo_users()
     # seed_users()
     seed_dailes()
     seed_avatars()
