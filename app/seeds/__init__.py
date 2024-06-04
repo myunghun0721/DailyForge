@@ -21,7 +21,7 @@ def seed():
         undo_avatars()
         undo_dailes()
         undo_users()
-    # seed_users()
+    seed_users()
     seed_dailes()
     seed_avatars()
     # Add other seed functions here
@@ -32,5 +32,5 @@ def seed():
 def undo():
     undo_avatars()
     undo_dailes()
-    # undo_users()
+    undo_users()
     # Add other undo functions here
