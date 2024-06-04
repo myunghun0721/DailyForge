@@ -20,8 +20,8 @@ def seed():
         # Make sure to add all your other model's undo functions below
         undo_avatars()
         undo_dailes()
-        undo_users()
-    seed_users()
+        # undo_users()
+    # seed_users()
     seed_dailes()
     seed_avatars()
     # Add other seed functions here
@@ -32,5 +32,5 @@ def seed():
 def undo():
     undo_avatars()
     undo_dailes()
-    undo_users()
+    # undo_users()
     # Add other undo functions here
