@@ -6,17 +6,17 @@ from sqlalchemy.sql import text
 def seed_users():
     hun = User(
         username='Hun', exp=100, email='hun@aa.io', password='password')
-    demo = User(
-        username='Demo', exp=100,email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', exp=100,email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', exp=100,email='bobbie@aa.io', password='password')
+    # demo = User(
+    #     username='Demo', exp=100,email='demo@aa.io', password='password')
+    # marnie = User(
+    #     username='marnie', exp=100,email='marnie@aa.io', password='password')
+    # bobbie = User(
+    #     username='bobbie', exp=100,email='bobbie@aa.io', password='password')
 
     db.session.add(hun)
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    # db.session.add(demo)
+    # db.session.add(marnie)
+    # db.session.add(bobbie)
     db.session.commit()
 
 
