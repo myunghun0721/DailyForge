@@ -26,6 +26,5 @@ class Avatar(db.Model):
             'skin' :self.skin,
             'hair' :self.hair,
             'extra' :self.extra,
-            'exp' : self.exp,
             'backgrounds' :self.backgrounds,
         }

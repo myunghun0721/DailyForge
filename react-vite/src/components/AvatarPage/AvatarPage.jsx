@@ -39,7 +39,7 @@ function AvatarPage() {
         <div className="user-info">
           <h2>@{sessionUser.username}</h2>
           <p>Email: {sessionUser.email}</p>
-          <p>EXP: {avatar.exp}</p>
+          {console.log("----------------------------------",sessionUser)}
         </div>
       </div>
     </>
