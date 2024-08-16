@@ -79,18 +79,20 @@ const initialState = {
 
 const avatarReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_AVATARS:
+        case FETCH_AVATARS: {
+
             const newState = {
                 ...state,
                 avatars: action.payload
             };
-            return newState
+            return newState;
             // newState.avatars = action.payload
+        }
 
-            case CREATE_AVATAR: {
+        case CREATE_AVATAR: {
             const newAvatarState = { ...state }
             newAvatarState[action.payload.id] = action.payload
-            return newAvatarState
+            return newAvatarState;
         }
         case DELETE_AVATAR: {
             const newState = { ...state };
@@ -102,7 +104,7 @@ const avatarReducer = (state = initialState, action) => {
         case UPDATE_AVATAR: {
             const editAvatarState = { ...state }
             editAvatarState[action.payload.id] = action.payload
-            return editAvatarState
+            return editAvatarState;
         }
 
         default:

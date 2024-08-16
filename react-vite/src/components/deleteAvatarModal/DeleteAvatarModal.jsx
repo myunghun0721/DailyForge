@@ -2,7 +2,6 @@ import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import './DeleteAvatarModal.css'
 import { thunkDeleteAvatars, thunkFetchAvatars } from '../../redux/avatars';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { thunkDeleteSong } from '../../redux/songs';
 // import { deleteSong } from '../../redux/user';

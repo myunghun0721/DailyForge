@@ -1,12 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import './UpdateDailyModal.css'
-import { thunkDeleteAvatars, thunkFetchAvatars } from '../../redux/avatars';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { thunkAddDailies, thunkFetchDailyById, thunkUpdateDaily } from '../../redux/dailies';
-// import { thunkDeleteSong } from '../../redux/songs';
-// import { deleteSong } from '../../redux/user';
+import {thunkFetchDailyById, thunkUpdateDaily } from '../../redux/dailies';
+
 
 
 
@@ -26,11 +23,6 @@ function UpdateDailyModal( {dailyId} ) {
     const month = ('0' + (newDate.getMonth() + 1)).slice(-2);
     const day = ('0' + parseInt(newDate.getDate()+ 1)).slice(-2);
     const dateStr = `${year}-${month}-${day}`;
-
-    // console.log("🚀 ~ UpdateDailyModal ~ dateStr:", dateStr)
-    // console.log("🚀 ~ UpdateDailyModal ~ newDate:", newDate.toISOString().replace("T", " ").substring(0, 19))
-
-
 
     useEffect(() => {
         if (dailyId) {
@@ -67,9 +59,6 @@ function UpdateDailyModal( {dailyId} ) {
         console.log("submit")
 
         dispatch(thunkUpdateDaily(formData, dailyId))
-        // for (const value of formData.values()) {
-        //     console.log(value);
-        //   }
         closeModal()
     }
 

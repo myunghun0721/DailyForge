@@ -1,7 +1,4 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Navigate, useNavigate } from "react-router-dom";
-import { thunkSignup } from "../../redux/session";
+import { NavLink, } from "react-router-dom";
 import { FaLinkedin } from "react-icons/fa";
 import './FooterPage.css'
 import { FaGithub } from "react-icons/fa";

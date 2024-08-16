@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Navigate, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./HomePage.css"
 import { thunkFetchAvatars } from "../../redux/avatars";
 // import initialData from "./initial-data";

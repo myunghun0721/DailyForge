@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate} from "react-router-dom";
 import "./DailyPage.css"; // Your custom styles for DailyPage
-import { fetchDailies, thunkFetchDailies } from "../../redux/dailies";
+import {thunkFetchDailies } from "../../redux/dailies";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import AddDailyModal from "../AddDailyModal";
 import DeleteDailyModal from "../DeleteDailyModal";
@@ -13,7 +13,6 @@ function DailyPage() {
   const sessionUser = useSelector((state) => state.session.user);
   const dailiesObj = useSelector(state => state.dailies);
   const dailies = Object.values(dailiesObj);
-  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {

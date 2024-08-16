@@ -1,9 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import './DeleteDailyModal.css'
-import { thunkDeleteAvatars, thunkFetchAvatars } from '../../redux/avatars';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { thunkDeleteDaily } from '../../redux/dailies';
 // import { thunkDeleteSong } from '../../redux/songs';
 // import { deleteSong } from '../../redux/user';
@@ -14,7 +11,6 @@ import { thunkDeleteDaily } from '../../redux/dailies';
 function DeleteDailyModal({ dailyId }) {
     const { closeModal } = useModal();
     const dispatch = useDispatch()
-    const navigate = useNavigate()
 
     function noButton() {
         closeModal()
