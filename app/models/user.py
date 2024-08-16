@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    exp = db.Column(db.Integer)
 
     # relationships
     avatars = db.relationship("Avatar", back_populates="users",  cascade="all, delete-orphan")
@@ -35,4 +36,5 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
+            'exp': self.email,
         }
