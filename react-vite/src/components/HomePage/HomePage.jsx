@@ -37,9 +37,11 @@ function HomePage() {
         // setState(initializeState(dailies));
         setState(dailies);
 
+
       }
     })()
   }, [dispatch, sessionUser])
+
 
 
   // const initializeState = (dailies) => {
@@ -164,22 +166,37 @@ function HomePage() {
       <div className="home-container">
         <div class="grid-item">
           <h3>Daily</h3>
-          {state && state.map(task => (
-            <div className="home-item">
-              {console.log(task)}
-              <div>
-                <h4>{task.title}</h4>
-                <p>{task.note}</p>
-              </div>
-              <div>
-                <button>Check</button>
-              </div>
-            </div>
+          {state && state.map(task => {
+            if (task.repeats) {
+              return <div className="home-item">
+                <div>
+                  <h4>{task.title}</h4>
+                  <p>{task.note}</p>
+                </div>
 
-          ))}
+                <div>
+                  <button>Check</button>
+                </div>
+              </div>
+            }
+          })}
         </div>
         <div class="grid-item">
           <h3>To do</h3>
+          {state && state.map(task => {
+            if (!task.repeats) {
+              return <div className="home-item">
+                <div>
+                  <h4>{task.title}</h4>
+                  <p>{task.note}</p>
+                </div>
+
+                <div>
+                  <button>Check</button>
+                </div>
+              </div>
+            }
+          })}
         </div>
       </div>
     </>
