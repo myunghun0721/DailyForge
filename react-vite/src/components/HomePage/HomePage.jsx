@@ -34,117 +34,120 @@ function HomePage() {
       if (sessionUser) {
         await dispatch(thunkFetchAvatars())
         const dailies = await dispatch(thunkFetchDailies());
-        setState(initializeState(dailies));
+        // setState(initializeState(dailies));
+        setState(dailies);
+
       }
     })()
   }, [dispatch, sessionUser])
 
-  const initializeState = (dailies) => {
-    // Extract task ids for column-1
-    const tasks = {};
-    // Populate tasks object and taskIds array
-    const taskIds = [];
 
-    dailies.forEach(task => {
-      tasks[task.id] = task;
-      taskIds.push(task.id);
-    });
+  // const initializeState = (dailies) => {
+  //   // Extract task ids for column-1
+  //   const tasks = {};
+  //   // Populate tasks object and taskIds array
+  //   const taskIds = [];
 
-    const initialData = {
-      tasks: tasks,
-      columns: {
-        'column-1': {
-          id: 'column-1',
-          title: 'My Dailies',
-          taskIds: taskIds
-        },
-        'column-2': {
-          id: 'column-2',
-          title: 'To Do Lists',
-          taskIds: []
-        },
-      },
-      // Facilitate reordering of the columns
-      columnOrder: ['column-1', 'column-2'],
-    }
+  //   dailies.forEach(task => {
+  //     tasks[task.id] = task;
+  //     taskIds.push(task.id);
+  //   });
 
-    return initialData
-  }
+  //   const initialData = {
+  //     tasks: tasks,
+  //     columns: {
+  //       'column-1': {
+  //         id: 'column-1',
+  //         title: 'My Dailies',
+  //         taskIds: taskIds
+  //       },
+  //       'column-2': {
+  //         id: 'column-2',
+  //         title: 'To Do Lists',
+  //         taskIds: []
+  //       },
+  //     },
+  //     // Facilitate reordering of the columns
+  //     columnOrder: ['column-1', 'column-2'],
+  //   }
 
-  const onDragEnd = result => {
-    const { destination, source, draggableId } = result;
+  //   return initialData
+  // }
 
-    // If there's no destination, then there's nothing that we need to do as a result of this drag, so we can simply exit.
-    if (!destination) {
-      return;
-    }
+  // const onDragEnd = result => {
+  //   const { destination, source, draggableId } = result;
 
-    // user drop the item back into the position that is started, so we don't need to do anything.
-    if (
-      destination.droppableId === source.droppableId &&
-      destination.index === source.index
-    ) {
-      return;
-    }
+  //   // If there's no destination, then there's nothing that we need to do as a result of this drag, so we can simply exit.
+  //   if (!destination) {
+  //     return;
+  //   }
 
-    // my daily order change
-    // start dragging
-    const start = state.columns[source.droppableId];
-    // end dragging
-    const finish = state.columns[destination.droppableId];
+  //   // user drop the item back into the position that is started, so we don't need to do anything.
+  //   if (
+  //     destination.droppableId === source.droppableId &&
+  //     destination.index === source.index
+  //   ) {
+  //     return;
+  //   }
 
-    if (start === finish) {
+  //   // my daily order change
+  //   // start dragging
+  //   const start = state.columns[source.droppableId];
+  //   // end dragging
+  //   const finish = state.columns[destination.droppableId];
 
-      const newTaskIds = Array.from(start.taskIds);
-      newTaskIds.splice(source.index, 1);
-      newTaskIds.splice(destination.index, 0, draggableId);
+  //   if (start === finish) {
 
-      const newColumn = {
-        ...start,
-        taskIds: newTaskIds,
-      };
+  //     const newTaskIds = Array.from(start.taskIds);
+  //     newTaskIds.splice(source.index, 1);
+  //     newTaskIds.splice(destination.index, 0, draggableId);
 
-      const newState = {
-        ...state,
-        columns: {
-          ...state.columns,
-          [newColumn.id]: newColumn,
-        },
-      };
+  //     const newColumn = {
+  //       ...start,
+  //       taskIds: newTaskIds,
+  //     };
 
-      setState(newState);
-      return
-    }
+  //     const newState = {
+  //       ...state,
+  //       columns: {
+  //         ...state.columns,
+  //         [newColumn.id]: newColumn,
+  //       },
+  //     };
 
-    // Moving from one list to another
-    const startTaskIds = Array.from(start.taskIds);
-    startTaskIds.splice(source.index, 1);
-    const newStart = {
-      ...start,
-      taskIds: startTaskIds,
-    };
+  //     setState(newState);
+  //     return
+  //   }
 
-    const finishTaskIds = Array.from(finish.taskIds);
-    finishTaskIds.splice(destination.index, 0, draggableId);
-    const newFinish = {
-      ...finish,
-      taskIds: finishTaskIds,
-    };
+  //   // Moving from one list to another
+  //   const startTaskIds = Array.from(start.taskIds);
+  //   startTaskIds.splice(source.index, 1);
+  //   const newStart = {
+  //     ...start,
+  //     taskIds: startTaskIds,
+  //   };
 
-    const newState = {
-      ...state,
-      columns: {
-        ...state.columns,
-        [newStart.id]: newStart,
-        [newFinish.id]: newFinish,
-      },
-    };
-    setState(newState);
-  }
+  //   const finishTaskIds = Array.from(finish.taskIds);
+  //   finishTaskIds.splice(destination.index, 0, draggableId);
+  //   const newFinish = {
+  //     ...finish,
+  //     taskIds: finishTaskIds,
+  //   };
+
+  //   const newState = {
+  //     ...state,
+  //     columns: {
+  //       ...state.columns,
+  //       [newStart.id]: newStart,
+  //       [newFinish.id]: newFinish,
+  //     },
+  //   };
+  //   setState(newState);
+  // }
 
   return (
     <>
-
+      {/*
       {state ? <DragDropContext onDragEnd={onDragEnd}>
         <Container>
           {state.columnOrder.map(columnId => {
@@ -157,7 +160,28 @@ function HomePage() {
       <div className="no-info">
         <NavLink to="/daily">No Dailies found. Create them here</NavLink>
       </div>
-      }
+      } */}
+      <div className="home-container">
+        <div class="grid-item">
+          <h3>Daily</h3>
+          {state && state.map(task => (
+            <div className="home-item">
+              {console.log(task)}
+              <div>
+                <h4>{task.title}</h4>
+                <p>{task.note}</p>
+              </div>
+              <div>
+                <button>Check</button>
+              </div>
+            </div>
+
+          ))}
+        </div>
+        <div class="grid-item">
+          <h3>To do</h3>
+        </div>
+      </div>
     </>
   );
 }
