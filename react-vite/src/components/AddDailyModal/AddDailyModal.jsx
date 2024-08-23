@@ -13,7 +13,7 @@ function AddDailyModal() {
     const [note, setNote] = useState("")
     const [difficulty, setDifficulty] = useState()
     const [startDate, setStartDate] = useState()
-    // const [repeat, setRepeat] = useState(false)
+    const [repeat, setRepeat] = useState(false)
     const [error, setError] = useState({})
     const {closeModal} = useModal()
 
@@ -25,7 +25,7 @@ function AddDailyModal() {
         formData.append('note', note)
         formData.append('difficulty', difficulty)
         formData.append('start_date', startDate)
-        formData.append('repeats', false)
+        formData.append('repeats', repeat)
 
         setError({})
 
@@ -65,6 +65,7 @@ function AddDailyModal() {
                 {error.note ? <h5>{error.note}</h5> : <h5></h5>}
 
                 <label htmlFor="difficulty">
+                    Difficulty:
                     <select id="difficulty" name="difficulty" onChange={(e) => setDifficulty(e.target.value)}>
                         <option value="none">Select an Option</option>
                         <option value="easy">Easy</option>
@@ -80,10 +81,13 @@ function AddDailyModal() {
                     <input type="date" name="start_date" onChange={(e) => setStartDate(e.target.value)} />
                 </label>
                 {error.startDate ? <h5>{error.startDate}</h5> : <h5></h5>}
-                {/* <label>
+
+                {/* {error.startDate ? <h5>{error.startDate}</h5> : <h5></h5>} */}
+
+                <label>
                     Repeat:
                     <input type='checkbox' checked={repeat} onChange={() => setRepeat(!repeat)} />
-                </label> */}
+                </label>
 
                 <button className='submit-button' type="submit" disabled={Object.values(error).length > 0}>Add Daily</button>
             </form>
