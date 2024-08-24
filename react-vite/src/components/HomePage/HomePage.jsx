@@ -149,6 +149,9 @@ function HomePage() {
 
   function clearTask(task) {
     console.log('task', task)
+    // if daily -> exp+ n keep task
+
+    // if to do -> exp+ delete task
   }
   return (
     <>
