@@ -147,6 +147,9 @@ function HomePage() {
   //   setState(newState);
   // }
 
+  function clearTask(task) {
+    console.log('task', task)
+  }
   return (
     <>
       {/*
@@ -175,7 +178,7 @@ function HomePage() {
                 </div>
 
                 <div>
-                  <button>Check</button>
+                  <button onClick={() => clearTask(task)}>Check</button>
                 </div>
               </div>
             }
@@ -192,7 +195,7 @@ function HomePage() {
                 </div>
 
                 <div>
-                  <button>Check</button>
+                  <button onClick={() => clearTask(task)}>Check</button>
                 </div>
               </div>
             }
