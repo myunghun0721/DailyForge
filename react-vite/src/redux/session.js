@@ -1,5 +1,6 @@
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
+const USER_EXP = 'session/userExp'
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -7,19 +8,24 @@ const setUser = (user) => ({
 });
 
 const removeUser = () => ({
-  type: REMOVE_USER
+  type: REMOVE_USER,
 });
 
-export const thunkAuthenticate = () => async (dispatch) => {
-	const response = await fetch("/api/auth/");
-	if (response.ok) {
-		const data = await response.json();
-		if (data.errors) {
-			return;
-		}
+export const updateUser = (user) => ({
+  type: USER_EXP,
+  payload: user
+})
 
-		dispatch(setUser(data));
-	}
+export const thunkAuthenticate = () => async (dispatch) => {
+  const response = await fetch("/api/auth/");
+  if (response.ok) {
+    const data = await response.json();
+    if (data.errors) {
+      return;
+    }
+
+    dispatch(setUser(data));
+  }
 };
 
 export const thunkLogin = (credentials) => async dispatch => {
@@ -29,7 +35,7 @@ export const thunkLogin = (credentials) => async dispatch => {
     body: JSON.stringify(credentials)
   });
 
-  if(response.ok) {
+  if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data));
   } else if (response.status < 500) {
@@ -47,7 +53,7 @@ export const thunkSignup = (user) => async (dispatch) => {
     body: JSON.stringify(user)
   });
 
-  if(response.ok) {
+  if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data));
   } else if (response.status < 500) {
@@ -63,6 +69,19 @@ export const thunkLogout = () => async (dispatch) => {
   dispatch(removeUser());
 };
 
+export const thunkUserExp = (userId, exp) => async (dispatch) => {
+  const res = await fetch(`/api/users/${userId}/exp/${exp}`, {
+    method: 'PUT',
+
+  })
+
+  if (res.ok) {
+    const updatedUser = await res.json();
+    dispatch(updateUser(updatedUser));
+    return updatedUser;
+  }
+}
+
 const initialState = { user: null, dailies: null };
 
 function sessionReducer(state = initialState, action) {
@@ -71,6 +90,8 @@ function sessionReducer(state = initialState, action) {
       return { ...state, user: action.payload };
     case REMOVE_USER:
       return { ...state, user: null, dailies: null };
+    case USER_EXP:
+      return { ...state, user: action.payload };
     default:
       return state;
   }

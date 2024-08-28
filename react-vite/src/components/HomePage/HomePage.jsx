@@ -8,6 +8,7 @@ import Column from './column.jsx'
 import { DragDropContext } from '@hello-pangea/dnd'
 import styled from "styled-components";
 import { thunkFetchDailies } from "../../redux/dailies.js";
+import { thunkUserExp } from "../../redux/session.js";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -148,10 +149,15 @@ function HomePage() {
   // }
 
   function clearTask(task) {
-    console.log('task', task)
-    // if daily -> exp+ n keep task
+    if(task.repeats){
+      // if daily -> exp+ n keep task
+      console.log('keep task', sessionUser.id)
+      // dispatch(thunkUserExp(sessionUser.id, ))
+    }
+    else{
+      // if to do -> exp+ delete task
 
-    // if to do -> exp+ delete task
+    }
   }
   return (
     <>
