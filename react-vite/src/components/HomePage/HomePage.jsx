@@ -7,7 +7,7 @@ import { thunkFetchAvatars } from "../../redux/avatars";
 import Column from './column.jsx'
 import { DragDropContext } from '@hello-pangea/dnd'
 import styled from "styled-components";
-import { thunkFetchDailies } from "../../redux/dailies.js";
+import { thunkDeleteDaily, thunkFetchDailies } from "../../redux/dailies.js";
 import { thunkUserExp } from "../../redux/session.js";
 
 function HomePage() {
@@ -148,14 +148,33 @@ function HomePage() {
   //   setState(newState);
   // }
 
-  function clearTask(task) {
-    if(task.repeats){
+  async function clearTask(task) {
+    if (task.repeats) {
       // if daily -> exp+ n keep task
-      console.log('keep task', sessionUser.id)
-      // dispatch(thunkUserExp(sessionUser.id, ))
+      if (task.difficulty == 'easy') {
+        dispatch(thunkUserExp(sessionUser.id, 100))
+      } else if (task.difficulty == 'normal') {
+        dispatch(thunkUserExp(sessionUser.id, 200))
+      }
+      else {
+        dispatch(thunkUserExp(sessionUser.id, 300))
+      }
     }
-    else{
+    else {
       // if to do -> exp+ delete task
+      if (task.difficulty == 'easy') {
+        await dispatch(thunkUserExp(sessionUser.id, 100))
+        dispatch(thunkDeleteDaily(task.id))
+
+      } else if (task.difficulty == 'normal') {
+        await dispatch(thunkUserExp(sessionUser.id, 200))
+        dispatch(thunkDeleteDaily(task.id))
+
+      }
+      else {
+        dispatch(thunkUserExp(sessionUser.id, 300))
+        await dispatch(thunkDeleteDaily(task.id))
+      }
 
     }
   }
