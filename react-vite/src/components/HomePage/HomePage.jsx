@@ -208,7 +208,7 @@ function HomePage() {
                 </div>
 
                 <div>
-                  <button onClick={() => clearTask(task)}>Check</button>
+                  <button className="check-button" onClick={() => clearTask(task)}>Check</button>
                 </div>
               </div>
             }
@@ -225,7 +225,7 @@ function HomePage() {
                 </div>
 
                 <div>
-                  <button onClick={() => clearTask(task)}>Check</button>
+                  <button className="check-button" onClick={() => clearTask(task)}>Check</button>
                 </div>
               </div>
             }

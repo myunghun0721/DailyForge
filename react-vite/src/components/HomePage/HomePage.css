@@ -82,3 +82,30 @@
     margin-top: 1px;
     margin-bottom: 5px;
 }
+
+.check-button{
+    background-color: #68CCCA;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.check-button:hover{
+    background-color: #5cbfbf
+}
+
+.check-button:active {
+    background-color: #4eb2b2;
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.check-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(104, 204, 202, 0.5);
+}
