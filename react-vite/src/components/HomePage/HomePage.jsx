@@ -9,6 +9,8 @@ import { DragDropContext } from '@hello-pangea/dnd'
 import styled from "styled-components";
 import { thunkDeleteDaily, thunkFetchDailies } from "../../redux/dailies.js";
 import { thunkUserExp } from "../../redux/session.js";
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem.jsx";
+import AddDailyModal from "../AddDailyModal/AddDailyModal.jsx";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -172,8 +174,8 @@ function HomePage() {
 
       }
       else {
-        dispatch(thunkUserExp(sessionUser.id, 300))
-        await dispatch(thunkDeleteDaily(task.id))
+        await dispatch(thunkUserExp(sessionUser.id, 300))
+        dispatch(thunkDeleteDaily(task.id))
       }
 
     }
