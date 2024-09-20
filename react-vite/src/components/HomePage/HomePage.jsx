@@ -153,6 +153,7 @@ function HomePage() {
   async function clearTask(task) {
     if (task.repeats) {
       // if daily -> exp+ n keep task
+      // need some kind of notice for user
       if (task.difficulty == 'easy') {
         dispatch(thunkUserExp(sessionUser.id, 100))
       } else if (task.difficulty == 'normal') {
