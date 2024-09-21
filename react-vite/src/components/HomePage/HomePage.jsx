@@ -211,9 +211,9 @@ function HomePage() {
                 </div>
 
                 <div>
-                  <button className="check-button" onClick={() => clearTask(task)}>Chdeck
+                  <button className="check-button" onClick={() => clearTask(task)}>
                   <OpenModalMenuItem
-                itemText="Delete Avatar"
+                itemText="Check"
                 //     onItemClick={closeMenu}
 
                 modalComponent={<DeleteAvatarModal />}
