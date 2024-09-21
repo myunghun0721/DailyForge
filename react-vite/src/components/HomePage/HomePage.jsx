@@ -12,6 +12,7 @@ import { thunkUserExp } from "../../redux/session.js";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem.jsx";
 import AddDailyModal from "../AddDailyModal/AddDailyModal.jsx";
 import DeleteDailyModal from "../DeleteDailyModal/DeleteDailyModal.jsx";
+import DeleteAvatarModal from "../deleteAvatarModal/DeleteAvatarModal.jsx";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -152,7 +153,6 @@ function HomePage() {
   // }
 
   async function clearTask(task) {
-    alert('Exp added')
     if (task.repeats) {
       // if daily -> exp+ n keep task
       // need some kind of notice for user
@@ -211,7 +211,14 @@ function HomePage() {
                 </div>
 
                 <div>
-                  <button className="check-button" onClick={() => clearTask(task)}>Check</button>
+                  <button className="check-button" onClick={() => clearTask(task)}>Chdeck
+                  <OpenModalMenuItem
+                itemText="Delete Avatar"
+                //     onItemClick={closeMenu}
+
+                modalComponent={<DeleteAvatarModal />}
+              />
+                  </button>
                 </div>
               </div>
             }
