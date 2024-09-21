@@ -11,6 +11,7 @@ import { thunkDeleteDaily, thunkFetchDailies } from "../../redux/dailies.js";
 import { thunkUserExp } from "../../redux/session.js";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem.jsx";
 import AddDailyModal from "../AddDailyModal/AddDailyModal.jsx";
+import DeleteDailyModal from "../DeleteDailyModal/DeleteDailyModal.jsx";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -151,6 +152,7 @@ function HomePage() {
   // }
 
   async function clearTask(task) {
+    alert('Exp added')
     if (task.repeats) {
       // if daily -> exp+ n keep task
       // need some kind of notice for user
