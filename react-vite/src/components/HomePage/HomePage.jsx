@@ -24,7 +24,6 @@ function HomePage() {
   const navigate = useNavigate()
 
   // user must logged in!!
-
   if (!sessionUser) {
     navigate("/")
   }

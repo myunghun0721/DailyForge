@@ -2,6 +2,8 @@ const FETCH_AVATARS = 'avatars/fetchAvatars'
 const CREATE_AVATAR = 'avatars/createAvatar'
 const DELETE_AVATAR = 'avatars/deleteAvatar'
 const UPDATE_AVATAR = 'avatars/updateAvatar'
+
+// payload
 export const fetchAvatars = avatars => ({
     type: FETCH_AVATARS,
     payload: avatars
@@ -21,6 +23,8 @@ export const updateAvatar = avatar => ({
     type: UPDATE_AVATAR,
     payload: avatar
 })
+
+// Thunk
 export const thunkFetchAvatars = () => async dispatch => {
     const response = await fetch('/api/avatars/');
     if (response.ok) {
