@@ -6,6 +6,7 @@ It's time to have fun when you get things done! Join over 4 million Habiticans a
 ![image](https://github.com/myunghun0721/DailyForge/assets/46683500/1948206d-c571-48be-a95f-168e1681d56f)
 
 ## Home page
+The main page that the user will see.
 ![image](https://github.com/myunghun0721/DailyForge/assets/46683500/8bfd2c74-f7f3-4d31-84b9-bac94d571851)
 
 ![image](https://github.com/myunghun0721/DailyForge/assets/46683500/175105dd-504d-4798-aaf2-0db58620030d)
